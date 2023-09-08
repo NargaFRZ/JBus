@@ -40,13 +40,17 @@ class Driver{
         if (discountPercentage > 100.0f){
             return 0;
         }
-        int discountInt = (int)discountPercentage;
-        return (price - (price * (discountInt / 100)));
+        float price2 = (float)price;
+        price2 = price2 - (price2 * discountPercentage /100);
+        price = (int)price2;
+        return price;
     }
     
     int getOriginalPrice(int discountedPrice, float discountPercentage){
-        int discountInt = (int)discountPercentage;
-        return (discountedPrice + (discountedPrice * (discountInt / 100)));
+        float price2 = (float)discountedPrice;
+        price2 = price2 + (price2 * discountPercentage /100);
+        discountedPrice = (int)price2;
+        return discountedPrice;
     }
     
     float getAdminFeePercentage(){
@@ -78,5 +82,13 @@ public class JBus{
         Driver driver = new Driver();
         Percentage = driver.getDiscountPercentage(awal,akhir);
         System.out.println("Harga akhir: " +Percentage);
+        
+        int discountPrice;
+        discountPrice = driver.getDiscountedPrice(awal,Percentage);
+        System.out.println("Discount Price: " +discountPrice);
+        
+        int oriPrice;
+        oriPrice = driver.getOriginalPrice(discountPrice,Percentage);
+        System.out.println("Original Price: " +oriPrice);
     }
 }
