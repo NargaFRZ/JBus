@@ -1,13 +1,12 @@
 #BlueJ class context
 comment0.target=JBus
-comment1.params=
-comment1.target=int\ getBusID()
-comment10.params=args
-comment10.target=void\ main(java.lang.String[])
+comment0.text=\r\n\ Fairuz\ Muhammad\r\n\ 2206814324\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
 comment2.params=
-comment2.target=java.lang.String\ getBusName()
+comment2.target=int\ getBusID()
 comment3.params=
-comment3.target=boolean\ isDiscount()
+comment3.target=java.lang.String\ getBusName()
 comment4.params=beforeDiscount\ afterDiscount
 comment4.target=float\ getDiscountPercentage(int,\ int)
 comment5.params=price\ discountPercentage
@@ -20,4 +19,4 @@ comment8.params=price
 comment8.target=int\ getAdminFee(int)
 comment9.params=price\ numberOfSeat
 comment9.target=int\ getTotalPrice(int,\ int)
-numComments=11
+numComments=10

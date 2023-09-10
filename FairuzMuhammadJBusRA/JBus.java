@@ -6,21 +6,57 @@ import java.util.Scanner;
  * 2206814324
  */
 
-class Driver{
-    int getBusID(){
+public class JBus{
+    public static void main(String[] args){
+        System.out.println("Test Case Diskon");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Harga awal: ");
+        int awal = input.nextInt();
+        System.out.println("Harga akhir: ");
+        int akhir = input.nextInt();
+        
+        float Percentage;
+        Percentage = getDiscountPercentage(awal,akhir);
+        System.out.println("Persentase Discount: " +Percentage);
+        
+        int discountPrice;
+        discountPrice = getDiscountedPrice(awal,Percentage);
+        System.out.println("Discount Price: " +discountPrice);
+        
+        int oriPrice;
+        oriPrice = getOriginalPrice(discountPrice,Percentage);
+        System.out.println("Original Price: " +oriPrice);
+        
+        System.out.println("\n\nTest case bus");
+        System.out.println("Harga naik bus: ");
+        int price = input.nextInt();
+        
+        System.out.println("Jumlah tempat duduk bus: ");
+        int seat = input.nextInt();
+        
+        int adminFee;
+        adminFee = getAdminFee(price);
+        System.out.println("Admin Fee: " +adminFee);
+        
+        int totalPrice;
+        totalPrice = getTotalPrice(price, seat);
+        System.out.println("Total Price: " +totalPrice);
+    }
+    
+    public static int getBusID(){
         return 0;
     }
     
-    String getBusName(){
+    public static String getBusName(){
         return "Bus";
     }
     
-    boolean isDiscount(){
-        return true;
-    }
-    
-    float getDiscountPercentage(int beforeDiscount, int afterDiscount){
+    public static float getDiscountPercentage(int beforeDiscount, int afterDiscount){
         if (beforeDiscount < afterDiscount){
+            return 0.0f;
+        }
+        
+        if (beforeDiscount == afterDiscount){
             return 0.0f;
         }
         
@@ -35,8 +71,7 @@ class Driver{
         return percentage;
     }
     
-    int getDiscountedPrice(int price, float discountPercentage){
-        
+    public static int getDiscountedPrice(int price, float discountPercentage){
         if (discountPercentage > 100.0f){
             return 0;
         }
@@ -46,49 +81,27 @@ class Driver{
         return price;
     }
     
-    int getOriginalPrice(int discountedPrice, float discountPercentage){
-        float price2 = (float)discountedPrice;
-        price2 = price2 + (price2 * discountPercentage /100);
-        discountedPrice = (int)price2;
-        return discountedPrice;
+    public static int getOriginalPrice(int discountedPrice, float discountPercentage){
+        if (discountPercentage > 100.0f){
+            return 0;
+        }
+        float originalPrice = discountedPrice / (1.0f - discountPercentage / 100.0f);
+        return (int)originalPrice;
     }
     
-    float getAdminFeePercentage(){
+    public static float getAdminFeePercentage(){
         return 0.05f;
     }
     
-    int getAdminFee(int price){
+    public static int getAdminFee(int price){
         float AdminFeePercentage = getAdminFeePercentage();
-        int AdminFeeInt = (int)AdminFeePercentage;
-        return price * AdminFeeInt;
+        float AdminFee = (float)price * AdminFeePercentage;
+        return (int)AdminFee;
     }
     
-    int getTotalPrice(int price, int numberOfSeat){
+    public static int getTotalPrice(int price, int numberOfSeat){
         int AdminFee = getAdminFee(price);
         price += AdminFee;
         return price * numberOfSeat;
-    }
-}
-
-public class JBus{
-    public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Harga awal: ");
-        int awal = input.nextInt();
-        System.out.println("Harga akhir: ");
-        int akhir = input.nextInt();
-        
-        float Percentage;
-        Driver driver = new Driver();
-        Percentage = driver.getDiscountPercentage(awal,akhir);
-        System.out.println("Harga akhir: " +Percentage);
-        
-        int discountPrice;
-        discountPrice = driver.getDiscountedPrice(awal,Percentage);
-        System.out.println("Discount Price: " +discountPrice);
-        
-        int oriPrice;
-        oriPrice = driver.getOriginalPrice(discountPrice,Percentage);
-        System.out.println("Original Price: " +oriPrice);
     }
 }
