@@ -8,39 +8,17 @@ import java.util.Scanner;
 
 public class JBus{
     public static void main(String[] args){
-        System.out.println("Test Case Diskon");
-        Scanner input = new Scanner(System.in);
-        System.out.println("Harga awal: ");
-        int awal = input.nextInt();
-        System.out.println("Harga akhir: ");
-        int akhir = input.nextInt();
-        
-        float Percentage;
-        Percentage = getDiscountPercentage(awal,akhir);
-        System.out.println("Persentase Discount: " +Percentage);
-        
-        int discountPrice;
-        discountPrice = getDiscountedPrice(awal,Percentage);
-        System.out.println("Discount Price: " +discountPrice);
-        
-        int oriPrice;
-        oriPrice = getOriginalPrice(discountPrice,Percentage);
-        System.out.println("Original Price: " +oriPrice);
-        
-        System.out.println("\n\nTest case bus");
-        System.out.println("Harga naik bus: ");
-        int price = input.nextInt();
-        
-        System.out.println("Jumlah tempat duduk bus: ");
-        int seat = input.nextInt();
-        
-        int adminFee;
-        adminFee = getAdminFee(price);
-        System.out.println("Admin Fee: " +adminFee);
-        
-        int totalPrice;
-        totalPrice = getTotalPrice(price, seat);
-        System.out.println("Total Price: " +totalPrice);
+        Bus testBus = createBus();
+        System.out.println(testBus.name);
+        System.out.println(testBus.facility);
+        System.out.println(testBus.price.price);
+        System.out.println(testBus.capacity);
+    }
+    
+    public static Bus createBus(){
+        Price price = new Price(750000,5);
+        Bus bus = new Bus("Netlab Bus", Facility.LUNCH, price, 25);
+        return bus;
     }
     
     public static int getBusID(){
