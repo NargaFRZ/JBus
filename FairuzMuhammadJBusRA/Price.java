@@ -38,6 +38,10 @@ public class Price{
     }
     
     private double getRebatedPrice(){
+        if (this.rebate<0){
+            return 0;
+        }
+        
         this.price -= this.rebate;
         
         if (this.price<0){

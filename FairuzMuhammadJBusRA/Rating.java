@@ -17,6 +17,11 @@ public class Rating{
     
     public double getAverage(){
         double rating;
+        
+        if(this.count == 0){
+            return 0;
+        }
+        
         rating = this.total / this.count;
         return rating;
     }
