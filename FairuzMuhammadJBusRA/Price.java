@@ -32,22 +32,23 @@ public class Price{
             return 0;
         }
         
-        this.discount = 100 - this.discount;
-        this.price = this.price * (this.discount/100);
+        this.discount = 100.0 - this.discount;
+        this.price = (double)(this.price * (this.discount/100.0));
         return this.price;
     }
     
     private double getRebatedPrice(){
+        if (this.price < this.rebate){
+            return 0;
+        }
+        
+        
         if (this.rebate<0){
             return 0;
         }
         
         this.price -= this.rebate;
-        
-        if (this.price<0){
-            return 0;
-        }
-        
+
         return this.price;
     }
 }
