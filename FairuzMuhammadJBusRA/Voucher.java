@@ -22,13 +22,17 @@ public class Voucher{
     }
     
     public boolean canApply(Price price){
-        if(price.price > this.minimum && this.used == false){
+        if(price.price > this.minimum && !this.used){
             return true;
         }
         return false;
     }
     
     public double apply(Price price){
+        if(!canApply(price)){
+            return price.price;
+        }
+        
         this.used = true;
         
         if(this.type == Type.DISCOUNT){
