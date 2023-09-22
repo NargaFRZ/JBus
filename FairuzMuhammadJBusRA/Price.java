@@ -1,17 +1,41 @@
 package FairuzMuhammadJBusRA;
 
+/**
+ * Represents the total Price
+ *
+ * @author Fairuz Muhammad
+ * @version PT2
+ */
 
 public class Price{
+    /**
+     * The total Price
+     */
     public double price;
+    
+    /**
+     * The total Rebate
+     */
     public double rebate;
 //  public double discount;
     
+    /**
+     * Construct a new Price object
+     * 
+     * @param price The total Price
+     */
     public Price(double price){
         this.price = price;
         this.rebate = 0.0;
 //      this.discount = 0;
     }
     
+    /**
+     * Construct a new Price object
+     * 
+     * @param price The total Price
+     * @param rebate The total Rebate
+     */
     public Price(double price, double rebate){
         this.price = price;
         this.rebate = rebate;

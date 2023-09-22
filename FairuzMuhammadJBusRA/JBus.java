@@ -2,11 +2,16 @@ package FairuzMuhammadJBusRA;
 import java.util.Scanner;
 
 /**
- * Fairuz Muhammad
- * 2206814324
+ * Represents the Main part of this java program
+ *
+ * @author Fairuz Muhammad
+ * @version CS3
  */
 
 public class JBus{
+    /**
+     * Main of the class, includes the testing of the other classes
+     */
     public static void main(String[] args){
         Payment testPayment = new Payment(1, 1, 1, "A", 1, "A", "A");
         Invoice testInvoice = new Invoice(2,2,2, "B");
