@@ -1,5 +1,7 @@
 #BlueJ class context
 comment0.target=Serializable
+comment0.text=\r\n\ Represents\ a\ serializable\ object\ with\ ID;\r\n\r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ CS3\r\n
 comment1.params=id
 comment1.target=Serializable(int)
+comment1.text=\r\n\ Constructs\ a\ new\ Serializable\ object\ with\ specified\ ID\r\n\ \r\n\ @param\ id\ The\ ID\ of\ the\ Serializable\ object\r\n
 numComments=2

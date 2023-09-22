@@ -1,9 +1,13 @@
 #BlueJ class context
 comment0.target=Invoice
+comment0.text=\r\n\ Represents\ an\ Invoice\ with\ specified\ Details\r\n\ The\ Invoice\ class\ extends\ the\ Serializable\ Class\r\n\r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ CS3\r\n\ @see\ Serializable\r\n
 comment1.params=id\ buyerId\ renterId\ time
 comment1.target=Invoice(int,\ int,\ int,\ java.lang.String)
+comment1.text=\r\n\ Construct\ a\ new\ Invoice\ object\ with\ the\ specified\ details\r\n\ This\ constructor\ is\ Protected\ which\ means\ it\ can\ only\ be\ accessed\ by\ the\ same\ package\ or\ by\ subclasses\r\n\ \r\n\ @param\ id\ The\ ID\ of\ the\ invoice,\ inherited\ from\ the\ Serializable\ Class\r\n\ @param\ buyerID\ The\ ID\ of\ the\ buyer\r\n\ @param\ renterId\ The\ ID\ of\ the\ renter\r\n\ @param\ time\ The\ time\ the\ invoice\ was\ made\r\n
 comment2.params=id\ buyer\ renter\ time
 comment2.target=Invoice(int,\ Account,\ Renter,\ java.lang.String)
+comment2.text=\r\n\ Construct\ a\ new\ Invoice\ object\ with\ the\ specified\ details\r\n\ \r\n\ @param\ id\ The\ ID\ of\ the\ invoice,\ inherited\ from\ the\ Serializable\ Class\r\n\ @param\ buyer\ The\ ID\ of\ the\ buyer,\ from\ the\ class\ Account\ @see\ Account\r\n\ @param\ renter\ The\ ID\ of\ the\ renter,\ from\ the\ class\ Renter\ @see\ Renter\r\n\ @param\ time\ The\ time\ the\ invoice\ was\ made\r\n
 comment3.params=
 comment3.target=java.lang.String\ print()
+comment3.text=\r\n\ Returns\ a\ string\ that\ shows\ all\ the\ invoice\ details\r\n\ \r\n\ @return\ A\ string\ containing\ the\ invoice\ details\r\n
 numComments=4
