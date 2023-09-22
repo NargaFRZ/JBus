@@ -1,6 +1,6 @@
 package FairuzMuhammadJBusRA;
 
-public class Voucher{
+public class Voucher extends Serializable{
     public String name;
     private boolean used;
     public double minimum;
@@ -8,7 +8,8 @@ public class Voucher{
     public int code;
     public Type type;
     
-    public Voucher(String name, int code, Type type, double minimum, double cut){
+    public Voucher(int id, String name, int code, Type type, double minimum, double cut){
+        super(id);
         this.name = name;
         this.code = code;
         this.type = type;
@@ -36,9 +37,16 @@ public class Voucher{
         this.used = true;
         
         if(this.type == Type.DISCOUNT){
+            if(this.cut>100){
+                this.cut = 100.0;
+            }
             return price.price - (price.price * this.cut / 100.0);
         }
+        
         else if(this.type == Type.REBATE){
+            if(price.price<this.cut){
+                this.cut = price.price;
+            }
             return price.price - this.cut;
         }
         
