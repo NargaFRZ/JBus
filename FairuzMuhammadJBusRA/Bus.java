@@ -64,8 +64,7 @@ public class Bus extends Serializable{
         return  "Bus Id: " + super.id +
                 " Bus Name: " + name +
                 " Facility: " + facility +
-                " Price: " + price.price +
-                " Rebate: " + price.rebate +
+                " " + price +
                 " Capacity: " + capacity +
                 " Bus Type: " + busType +
                 " City: " + city +
