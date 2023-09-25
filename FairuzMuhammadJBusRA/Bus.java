@@ -5,7 +5,7 @@ package FairuzMuhammadJBusRA;
  * The Bus class extends the Serializable Class
  *
  * @author Fairuz Muhammad
- * @version CS3
+ * @version PT3
  * @see Serializable
  */
 
@@ -31,6 +31,14 @@ public class Bus extends Serializable{
      */
     public Price price;
     
+    public City city;
+    
+    public BusType busType;
+    
+    public Station arrival;
+    
+    public Station departure;
+    
     /**
      * Create a new Bus based on the specified details
      * 
@@ -40,11 +48,26 @@ public class Bus extends Serializable{
      * @param price The price details of the Bus
      * @param capacity The seating capacity of the Bus
      */
-    public Bus(int id, String name, Facility facility, Price price, int capacity){
+    public Bus(int id, String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival){
         super(id);
         this.capacity = capacity;
         this.facility = facility;
         this.name = name;
         this.price = price;
+        this.busType = busType;
+        this.arrival = arrival;
+        this.departure = departure;
+    }
+    
+    public String toString(){
+        return  "Bus Id: " + super.id +
+                " Bus Name: " + name +
+                " Facility: " + facility +
+                " Price: " + price +
+                " Capacity: " + capacity +
+                " Bus Type: " + busType +
+                " City: " + city +
+                " Departure: " + departure +
+                " Arrival: " + arrival;
     }
 }

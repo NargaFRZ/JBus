@@ -4,7 +4,7 @@ package FairuzMuhammadJBusRA;
  * Represents the total Price
  *
  * @author Fairuz Muhammad
- * @version PT2
+ * @version PT3
  */
 
 public class Price{
@@ -40,6 +40,11 @@ public class Price{
         this.price = price;
         this.rebate = rebate;
 //      this.discount = 0.0;
+    }
+    
+    public String toString(){
+        return  "Price: " + price +
+                " Rebate: " + rebate;
     }
     
 /*

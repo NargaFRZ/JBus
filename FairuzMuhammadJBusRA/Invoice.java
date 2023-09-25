@@ -5,7 +5,7 @@ package FairuzMuhammadJBusRA;
  * The Invoice class extends the Serializable Class
  *
  * @author Fairuz Muhammad
- * @version CS3
+ * @version PT3
  * @see Serializable
  */
 
@@ -25,12 +25,16 @@ public class Invoice extends Serializable{
      */
     public int renterId;
     
+    public BusRating rating;
+    
+    public PaymentStatus status;
+    
     /**
      * Construct a new Invoice object with the specified details
      * This constructor is Protected which means it can only be accessed by the same package or by subclasses
      * 
      * @param id The ID of the invoice, inherited from the Serializable Class
-     * @param buyerID The ID of the buyer
+     * @param buyerId The ID of the buyer
      * @param renterId The ID of the renter
      * @param time The time the invoice was made
      */
@@ -39,6 +43,8 @@ public class Invoice extends Serializable{
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.time = time;
+        this.rating = rating.NONE;
+        this.status = status.WAITING;
     }
     
     /**
@@ -54,6 +60,8 @@ public class Invoice extends Serializable{
         this.buyerId = buyer.id;
         this.renterId = renter.id;
         this.time = time;
+        this.rating = rating.NONE;
+        this.status = status.WAITING;
     }
     
     /**
@@ -61,10 +69,25 @@ public class Invoice extends Serializable{
      * 
      * @return A string containing the invoice details
      */
-    public String print(){
+    public String toString(){
         return "Invoice Id: " + super.id +
                 " Buyer Id: " + buyerId +
                 " Renter Id: " + renterId +
-                " time: " + time;
+                " Time: " + time +
+                " Rating: " + rating +
+                " Status: " + status;
+    }
+    
+    public enum BusRating{
+        NONE,
+        NEUTRAL,
+        GOOD,
+        BAD;
+    }
+    
+    public enum PaymentStatus{
+        FAILED,
+        WAITING,
+        SUCCESS;
     }
 }

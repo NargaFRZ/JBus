@@ -5,7 +5,7 @@ package FairuzMuhammadJBusRA;
  * The Account class extends the Serializable Class
  *
  * @author Fairuz Muhammad
- * @version CS3
+ * @version PT3
  * @see Serializable
  */
 
@@ -38,5 +38,12 @@ public class Account extends Serializable{
         this.name = name;
         this.email = email;
         this.password = password;
+    }
+    
+    public String toString(){
+        return  "Account Id: " + super.id +
+                " Name: " + name +
+                " Email: " + email +
+                " Password: " + password;
     }
 }

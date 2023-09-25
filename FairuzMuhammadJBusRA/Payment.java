@@ -5,7 +5,7 @@ package FairuzMuhammadJBusRA;
  * The Payment class extends the Invoice Class
  *
  * @author Fairuz Muhammad
- * @version CS3
+ * @version PT3
  * @see Invoice
  */
 public class Payment extends Invoice{
@@ -66,8 +66,8 @@ public class Payment extends Invoice{
      * 
      * @return A string containing the details of the Bus
      */
-    public String print(){
-        return  super.print() +
+    public String toString(){
+        return  super.toString() +
                 " Bus ID: " + busId +
                 " Departure Date: " + departureDate +
                 " Bus Seat: " + busSeat;

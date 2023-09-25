@@ -20,6 +20,8 @@ public class Station extends Serializable{
      */
     public String stationName;
     
+    public String address;
+    
     /**
      * Construct a new Station object with the specified details
      * 
@@ -27,10 +29,11 @@ public class Station extends Serializable{
      * @param stationName The name of the Station
      * @param city The City the Station is on, based on the City enum @see City
      */
-    public Station(int id, String stationName, City city){
+    public Station(int id, String stationName, City city, String address){
         super(id);
         this.stationName = stationName;
         this.city = city;
+        this.address = address;
     }
     
     /**
@@ -38,9 +41,10 @@ public class Station extends Serializable{
      * 
      * @return A string containing the Station details
      */
-    public String print(){
+    public String toString(){
         return  "Station ID: " + id + 
                 " Station: " + stationName + 
-                " City: " + city; 
+                " City: " + city +
+                " Address: " + address;
     }
 }

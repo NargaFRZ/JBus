@@ -4,7 +4,7 @@ package FairuzMuhammadJBusRA;
  * Represents the Rating given by the Customer
  *
  * @author Fairuz Muhammad
- * @version CS1
+ * @version PT3
  */
 
 public class Rating{
@@ -66,5 +66,10 @@ public class Rating{
      */
     public long getTotal(){
         return this.total;
+    }
+    
+    public String toString(){
+        return  "Count: " + count +
+                " Total: " + total;
     }
 }
