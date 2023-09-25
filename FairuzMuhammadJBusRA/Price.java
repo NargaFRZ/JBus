@@ -44,7 +44,7 @@ public class Price{
     
     public String toString(){
         return  "Price: " + price +
-                " Rebate: " + rebate;
+                ", Rebate: " + rebate;
     }
     
 /*

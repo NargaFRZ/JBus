@@ -70,12 +70,12 @@ public class Invoice extends Serializable{
      * @return A string containing the invoice details
      */
     public String toString(){
-        return "Invoice Id: " + super.id +
-                " Buyer Id: " + buyerId +
-                " Renter Id: " + renterId +
-                " Time: " + time +
-                " Rating: " + rating +
-                " Status: " + status;
+        return ",Invoice Id: " + super.id +
+                ", Buyer Id: " + buyerId +
+                ", Renter Id: " + renterId +
+                ", Time: " + time +
+                ", Rating: " + rating +
+                ", Status: " + status;
     }
     
     public enum BusRating{

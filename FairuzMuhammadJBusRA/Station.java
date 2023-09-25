@@ -43,8 +43,8 @@ public class Station extends Serializable{
      */
     public String toString(){
         return  "Station ID: " + id + 
-                " Station: " + stationName + 
-                " City: " + city +
-                " Address: " + address;
+                ", Station: " + stationName + 
+                ", City: " + city +
+                ", Address: " + address;
     }
 }

@@ -18,8 +18,8 @@ public class Review extends Serializable{
     }
     
     public String toString(){
-        return  "Review id: " + super.id +
-                " Date: " + this.date +
-                " Desc: " + this.desc;
+        return  "Review ID: " + super.id +
+                ", Date: " + this.date +
+                ", Desc: " + this.desc;
     }
 }

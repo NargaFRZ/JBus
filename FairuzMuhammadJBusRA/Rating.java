@@ -70,6 +70,6 @@ public class Rating{
     
     public String toString(){
         return  "Count: " + count +
-                " Total: " + total;
+                ", Total: " + total;
     }
 }

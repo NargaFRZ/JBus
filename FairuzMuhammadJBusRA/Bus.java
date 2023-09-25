@@ -61,13 +61,13 @@ public class Bus extends Serializable{
     }
     
     public String toString(){
-        return  "Bus Id: " + super.id +
-                " Bus Name: " + name +
-                " Facility: " + facility +
-                " " + price + 
-                " Capacity: " + capacity +
-                " Bus Type: " + busType +
-                " City: " + city + "\n" +
+        return  "Bus ID: " + super.id +
+                ", Bus Name: " + name +
+                ", Facility: " + facility +
+                ", " + price + 
+                ", Capacity: " + capacity +
+                ", Bus Type: " + busType +
+                ", City: " + city + "\n" +
                 "Departure: " + "\n" + departure + "\n" +
                 "Arrival: " + "\n" + arrival;
     }
