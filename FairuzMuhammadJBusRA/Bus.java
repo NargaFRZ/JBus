@@ -55,6 +55,7 @@ public class Bus extends Serializable{
         this.name = name;
         this.price = price;
         this.busType = busType;
+        this.city = city;
         this.arrival = arrival;
         this.departure = departure;
     }
@@ -67,7 +68,7 @@ public class Bus extends Serializable{
                 " Capacity: " + capacity +
                 " Bus Type: " + busType +
                 " City: " + city +
-                " Departure: " + departure +
-                " Arrival: " + arrival;
+                " Departure: " + departure.stationName +
+                " Arrival: " + arrival.stationName;
     }
 }
