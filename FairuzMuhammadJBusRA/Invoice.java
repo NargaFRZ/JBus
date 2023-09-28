@@ -25,8 +25,14 @@ public class Invoice extends Serializable{
      */
     public int renterId;
     
+    /**
+     * The rating given to the Bus
+     */
     public BusRating rating;
     
+    /**
+     * The status of the Payment
+     */
     public PaymentStatus status;
     
     /**
@@ -78,16 +84,48 @@ public class Invoice extends Serializable{
                 ", Status: " + status;
     }
     
+    /**
+     * An Enum representing the rating given to the Bus
+     */
     public enum BusRating{
+        /**
+         * No Rating
+         */
         NONE,
+        
+        /**
+         * Neutral Rating
+         */
         NEUTRAL,
+        
+        /**
+         * Good Rating
+         */
         GOOD,
+        
+        /**
+         * Bad Rating
+         */
         BAD;
     }
     
+    /**
+     * An Enum representing the status of the Payment
+     */
     public enum PaymentStatus{
+        /**
+         * Payment failed
+         */
         FAILED,
+        
+        /**
+         * Payment is pending
+         */
         WAITING,
+        
+        /**
+         * Payment successful
+         */
         SUCCESS;
     }
 }

@@ -5,7 +5,7 @@ package FairuzMuhammadJBusRA;
  * The Station class extends the Serializable Class
  *
  * @author Fairuz Muhammad
- * @version CS3
+ * @version PT3
  * @see Serializable
  */
 
@@ -20,6 +20,9 @@ public class Station extends Serializable{
      */
     public String stationName;
     
+    /**
+     * The address of the Station
+     */
     public String address;
     
     /**
@@ -28,6 +31,7 @@ public class Station extends Serializable{
      * @param id The ID of the station, inherited from the Serializable Class
      * @param stationName The name of the Station
      * @param city The City the Station is on, based on the City enum @see City
+     * @param address The address of the Station
      */
     public Station(int id, String stationName, City city, String address){
         super(id);

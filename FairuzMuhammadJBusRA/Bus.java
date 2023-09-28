@@ -31,12 +31,24 @@ public class Bus extends Serializable{
      */
     public Price price;
     
+    /**
+     * The city the bus is going to
+     */
     public City city;
     
+    /**
+     * The type of bus according to the BusType enum @see BusType
+     */
     public BusType busType;
     
+    /**
+     * The Station the bus is going to according to the Station class @see Station
+     */
     public Station arrival;
     
+    /**
+     * The Station the bus is departing from according to the Station class @see Station
+     */
     public Station departure;
     
     /**
@@ -47,6 +59,10 @@ public class Bus extends Serializable{
      * @param facility The facility of the Bus
      * @param price The price details of the Bus
      * @param capacity The seating capacity of the Bus
+     * @param busType The type of Bus
+     * @param city The city the Bus is going to
+     * @param arrival The station the bus is going to
+     * @param departure The station the bus is departing from
      */
     public Bus(int id, String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival){
         super(id);
@@ -60,6 +76,11 @@ public class Bus extends Serializable{
         this.departure = departure;
     }
     
+    /**
+     * Returns a string that shows all the Bus details
+     * 
+     * @return A string containing the Bus details
+     */
     public String toString(){
         return  "Bus ID: " + super.id +
                 ", Bus Name: " + name +

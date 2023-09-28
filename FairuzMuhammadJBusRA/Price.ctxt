@@ -9,4 +9,5 @@ comment2.target=Price(double,\ double)
 comment2.text=\r\n\ Construct\ a\ new\ Price\ object\r\n\ \r\n\ @param\ price\ The\ total\ Price\r\n\ @param\ rebate\ The\ total\ Rebate\r\n
 comment3.params=
 comment3.target=java.lang.String\ toString()
+comment3.text=\r\n\ Returns\ a\ string\ that\ shows\ all\ the\ Price\ details\r\n\ \r\n\ @return\ A\ string\ containing\ the\ Price\ details\r\n
 numComments=4

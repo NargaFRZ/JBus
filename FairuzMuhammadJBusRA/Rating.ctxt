@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Rating
-comment0.text=\r\n\ Represents\ the\ Rating\ given\ by\ the\ Customer\r\n\r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ PT3\r\n
+comment0.text=\r\n\ Represents\ the\ Rating\ given\ by\ the\ Customer\r\n\ The\ Rating\ Class\ extends\ the\ Invoice\ class\r\n\r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ PT3\r\n
 comment1.params=
 comment1.target=Rating()
 comment1.text=\r\n\ Construct\ a\ Rating\ with\ the\ total\ and\ count\ set\ to\ 0\r\n
@@ -18,4 +18,5 @@ comment5.target=long\ getTotal()
 comment5.text=\r\n\ Makes\ the\ Total\ variable\ to\ be\ able\ to\ be\ accessed\r\n
 comment6.params=
 comment6.target=java.lang.String\ toString()
+comment6.text=\r\n\ Returns\ a\ string\ containing\ the\ details\ of\ the\ Rating\r\n\ \r\n\ @return\ A\ string\ containing\ the\ details\ of\ the\ Rating\r\n
 numComments=7

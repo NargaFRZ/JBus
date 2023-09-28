@@ -40,6 +40,11 @@ public class Account extends Serializable{
         this.password = password;
     }
     
+    /**
+     * Returns a string that shows all the account details
+     * 
+     * @return A string containing the account details
+     */
     public String toString(){
         return  "Account ID: " + super.id +
                 ", Name: " + name +

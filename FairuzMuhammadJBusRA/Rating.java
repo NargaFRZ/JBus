@@ -2,6 +2,7 @@ package FairuzMuhammadJBusRA;
 
 /**
  * Represents the Rating given by the Customer
+ * The Rating Class extends the Invoice class
  *
  * @author Fairuz Muhammad
  * @version PT3
@@ -68,6 +69,11 @@ public class Rating{
         return this.total;
     }
     
+    /**
+     * Returns a string containing the details of the Rating
+     * 
+     * @return A string containing the details of the Rating
+     */
     public String toString(){
         return  "Count: " + count +
                 ", Total: " + total;

@@ -42,6 +42,11 @@ public class Price{
 //      this.discount = 0.0;
     }
     
+    /**
+     * Returns a string that shows all the Price details
+     * 
+     * @return A string containing the Price details
+     */
     public String toString(){
         return  "Price: " + price +
                 ", Rebate: " + rebate;
