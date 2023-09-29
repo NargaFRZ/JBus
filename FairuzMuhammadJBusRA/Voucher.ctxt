@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Voucher
-comment0.text=\r\n\ Represents\ a\ voucher\ with\ specified\ Details\r\n\ The\ Voucher\ class\ extends\ the\ Serializable\ Class\r\n\r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ CS3\r\n\ @see\ Serializable\r\n
+comment0.text=\r\n\ Represents\ a\ voucher\ with\ specified\ Details\r\n\ The\ Voucher\ class\ extends\ the\ Serializable\ Class\r\n\ The\ Voucher\ class\ also\ implements\ the\ FileParser\ interface\r\n\r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ CS4\r\n\ @see\ Serializable\r\n
 comment1.params=id\ name\ code\ type\ minimum\ cut
 comment1.target=Voucher(int,\ java.lang.String,\ int,\ Type,\ double,\ double)
 comment1.text=\r\n\ Construct\ a\ new\ Voucher\ object\ with\ the\ specified\ details\r\n\ \r\n\ @param\ id\ The\ ID\ of\ the\ Voucher,\ inherited\ from\ the\ Serializable\ class\r\n\ @param\ name\ The\ Name\ of\ the\ person\ who\ is\ using\ the\ Voucher\r\n\ @param\ code\ The\ Code\ of\ the\ Voucher\r\n\ @param\ type\ The\ type\ of\ the\ Voucher\ according\ to\ the\ Voucher\ enum\ @see\ Type\r\n\ @param\ minimum\ The\ minimum\ price\ to\ be\ able\ to\ use\ a\ voucher\r\n\ @param\ cut\ The\ cut\ of\ the\ price\ that\ is\ applied\ after\ using\ a\ voucher\r\n
@@ -13,4 +13,10 @@ comment3.text=\r\n\ Check\ if\ the\ voucher\ can\ be\ applied\ or\ not\r\n\ \r\n
 comment4.params=price
 comment4.target=double\ apply(Price)
 comment4.text=\r\n\ Apply\ the\ voucher\r\n\ Based\ on\ the\ voucher\ type\ the\ cut\ will\ be\ different\r\n\ If\ the\ voucher\ type\ is\ Discount,\ cut\ will\ be\ treated\ as\ percentage\r\n\ If\ the\ voucher\ type\ is\ Rebate,\ cut\ will\ be\ treated\ as\ normal\ value\r\n\ On\ type\ Discount,\ if\ cut\ is\ bigger\ than\ 100,\ cut\ will\ be\ set\ to\ 100\r\n\ On\ type\ Rebate,\ if\ cut\ is\ bigger\ than\ the\ price,\ cut\ will\ be\ set\ to\ the\ same\ as\ price\r\n\ \r\n\ @return\ Returns\ the\ original\ price\ if\ the\ voucher\ cannot\ be\ applied,\ else\ Returns\ the\ Price\ after\ applying\ discount\ or\ rebate\r\n
-numComments=5
+comment5.params=
+comment5.target=java.lang.Object\ write()
+comment5.text=\r\n\ Writes\ the\ object's\ data\ to\ a\ file\r\n\ \r\n\ @return\ An\ object\ representation\ of\ the\ written\ data\r\n
+comment6.params=filename
+comment6.target=boolean\ read(java.lang.String)
+comment6.text=\r\n\ Reads\ data\ from\ a\ specified\ file\ and\ updates\ the\ object's\ state\ accordingly\r\n\ \r\n\ @param\ filename\ The\ name\ or\ path\ of\ the\ file\ to\ read\ from\r\n\ @return\ true\ if\ the\ read\ operation\ was\ successful,\ otherwise\ false\r\n
+numComments=7

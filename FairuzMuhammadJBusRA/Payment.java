@@ -1,11 +1,14 @@
 package FairuzMuhammadJBusRA;
 
+import java.util.Calendar;
+import java.text.*;
+
 /**
  * Represents the Payment with specified Details
  * The Payment class extends the Invoice Class
  *
  * @author Fairuz Muhammad
- * @version PT3
+ * @version CS4
  * @see Invoice
  */
 public class Payment extends Invoice{
@@ -18,7 +21,7 @@ public class Payment extends Invoice{
     /**
      * The departure date of the Bus
      */
-    public String departureDate;
+    public Calendar departureDate = Calendar.getInstance();
     
     /**
      * The seat number of the Bus
@@ -31,15 +34,14 @@ public class Payment extends Invoice{
      * @param id The ID of the Bus and Invoice, inherited from the Invoice class
      * @param buyerId The ID of the Buyer, inherited from the Invoice class
      * @param renterId The ID of the Renter, inherited from the Invoice class
-     * @param time The time the Invoice was made, inherited from the Invoice class
      * @param busId The ID of the Bus
      * @param departureDate The departure date of the Bus
      * @param busSeat The seat number of the Bus
      */
-    public Payment(int id, int buyerId, int renterId, String time, int busId, String departureDate, String busSeat){
-        super(id, buyerId, renterId, time);
+    public Payment(int id, int buyerId, int renterId, int busId, String busSeat){
+        super(id, buyerId, renterId);
         this.busId = busId;
-        this.departureDate = departureDate;
+        this.departureDate.add(Calendar.DATE,2);
         this.busSeat = busSeat;
     }
     
@@ -49,15 +51,14 @@ public class Payment extends Invoice{
      * @param id The ID of the Bus and Invoice, inherited from the Invoice class
      * @param buyerId The ID of the Buyer, inherited from the Invoice class, includes the buyer from the Account class @see Account
      * @param renterId The ID of the Renter, inherited from the Invoice class, includes the renter from the Account class @see Account
-     * @param time The time the Invoice was made, inherited from the Invoice class
      * @param busId The ID of the Bus
      * @param departureDate The departure date of the Bus
      * @param busSeat The seat number of the Bus
      */
-    public Payment(int id, Account buyer, Renter renter, String time, int busId, String departureDate, String busSeat){
-        super(id, buyer, renter, time);
+    public Payment(int id, Account buyer, Renter renter, int busId, String busSeat){
+        super(id, buyer, renter);
         this.busId = busId;
-        this.departureDate = departureDate;
+        this.departureDate.add(Calendar.DATE,2);
         this.busSeat = busSeat;
     }
     
@@ -66,11 +67,17 @@ public class Payment extends Invoice{
      * 
      * @return A string containing the details of the Bus
      */
-    public String toString(){
+    public String getDepartureInfo(){
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
         return  super.toString() +
                 " Bus ID: " + busId +
-                " Departure Date: " + departureDate +
+                " Departure Date: " + sdf.format(departureDate.getTime()) +
                 " Bus Seat: " + busSeat;
+    }
+    
+    public String getTime(){
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
+        return sdf.format(time.getTime());
     }
     
     /**

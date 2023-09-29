@@ -1,11 +1,13 @@
 package FairuzMuhammadJBusRA;
 
+import java.util.Calendar;
+
 /**
  * Represents an Invoice with specified Details
  * The Invoice class extends the Serializable Class
  *
  * @author Fairuz Muhammad
- * @version PT3
+ * @version CS4
  * @see Serializable
  */
 
@@ -13,7 +15,7 @@ public class Invoice extends Serializable{
     /**
      * The time the invoice was made
      */
-    public String time;
+    public Calendar time;
     
     /**
      * The ID of the buyer
@@ -44,11 +46,11 @@ public class Invoice extends Serializable{
      * @param renterId The ID of the renter
      * @param time The time the invoice was made
      */
-    protected Invoice(int id, int buyerId, int renterId, String time){
+    protected Invoice(int id, int buyerId, int renterId){
         super(id);
         this.buyerId = buyerId;
         this.renterId = renterId;
-        this.time = time;
+        this.time = Calendar.getInstance();
         this.rating = rating.NONE;
         this.status = status.WAITING;
     }
@@ -61,11 +63,11 @@ public class Invoice extends Serializable{
      * @param renter The ID of the renter, from the class Renter @see Renter
      * @param time The time the invoice was made
      */
-    public Invoice(int id, Account buyer, Renter renter, String time){
+    public Invoice(int id, Account buyer, Renter renter){
         super(id);
         this.buyerId = buyer.id;
         this.renterId = renter.id;
-        this.time = time;
+        this.time = Calendar.getInstance();
         this.rating = rating.NONE;
         this.status = status.WAITING;
     }
@@ -76,10 +78,9 @@ public class Invoice extends Serializable{
      * @return A string containing the invoice details
      */
     public String toString(){
-        return ",Invoice Id: " + super.id +
+        return "Invoice Id: " + super.id +
                 ", Buyer Id: " + buyerId +
                 ", Renter Id: " + renterId +
-                ", Time: " + time +
                 ", Rating: " + rating +
                 ", Status: " + status;
     }

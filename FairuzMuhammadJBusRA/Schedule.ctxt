@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Schedule
+comment0.text=\r\n\ Schedule\ Class\r\n\r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ CS4\r\n
+comment1.params=departureSchedule\ numberOfSeats
+comment1.target=Schedule(java.util.Calendar,\ int)
+comment2.params=numberOfSeats
+comment2.target=void\ initializeSeatAvailability(int)
+numComments=3

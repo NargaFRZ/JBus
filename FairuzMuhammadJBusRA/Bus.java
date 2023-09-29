@@ -1,15 +1,22 @@
 package FairuzMuhammadJBusRA;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.text.*;
+import java.util.Map;
+
 /**
  * Represents a bus with specified details
  * The Bus class extends the Serializable Class
+ * The Bus class also implements the FileParser interface
  *
  * @author Fairuz Muhammad
- * @version PT3
+ * @version CS4
  * @see Serializable
  */
 
-public class Bus extends Serializable{
+public class Bus extends Serializable implements FileParser{
     /**
      * Seat capacity of the bus
      */
@@ -51,6 +58,8 @@ public class Bus extends Serializable{
      */
     public Station departure;
     
+    public List<Schedule> schedules;
+    
     /**
      * Create a new Bus based on the specified details
      * 
@@ -74,6 +83,7 @@ public class Bus extends Serializable{
         this.city = city;
         this.arrival = arrival;
         this.departure = departure;
+        this.schedules = new ArrayList<>();
     }
     
     /**
@@ -91,5 +101,39 @@ public class Bus extends Serializable{
                 ", City: " + city + "\n" +
                 "Departure: " + "\n" + departure + "\n" +
                 "Arrival: " + "\n" + arrival;
+    }
+    
+    /**
+     * Writes the object's data to a file
+     * 
+     * @return An object representation of the written data
+     */
+    public Object write(){
+        return null;
+    }
+    
+    /**
+     * Reads data from a specified file and updates the object's state accordingly
+     * 
+     * @param filename The name or path of the file to read from
+     * @return true if the read operation was successful, otherwise false
+     */
+    public boolean read(String filename){
+        return false;
+    }
+    
+    public void addSchedule(Calendar calendar){
+        Schedule newSchedule = new Schedule(calendar, this.capacity);
+        this.schedules.add(newSchedule);
+    }
+    
+    public void printSchedule(Schedule schedule){
+        SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
+        System.out.println("Tanggal keberangkatan: " +sdf.format(schedule.departureSchedule.getTime()));
+        System.out.println("Daftar Kursi dan ketersediaan kursinya");
+        
+        for(Map.Entry<String,Boolean> entry : schedule.seatAvailability.entrySet()){
+            System.out.println(entry.getKey() + " : " + entry.getValue() + " ");
+        }
     }
 }

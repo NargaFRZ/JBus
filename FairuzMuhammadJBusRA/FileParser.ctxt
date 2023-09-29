@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=FileParser
+comment0.text=\r\n\ The\ FileParser\ interface\ provides\ methods\ for\ reading\ and\ writing\ data\ to\ and\ from\ files.\r\n\ \r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ CS4\r\n
+comment1.params=
+comment1.target=java.lang.Object\ write()
+comment1.text=\r\n\ Writes\ the\ object's\ data\ to\ a\ file\r\n\ \r\n\ @return\ An\ object\ representation\ of\ the\ written\ data\r\n
+comment2.params=filename
+comment2.target=boolean\ read(java.lang.String)
+comment2.text=\r\n\ Reads\ data\ from\ a\ specified\ file\ and\ updates\ the\ object's\ state\ accordingly\r\n\ \r\n\ @param\ filename\ The\ name\ or\ path\ of\ the\ file\ to\ read\ from\r\n\ @return\ true\ if\ the\ read\ operation\ was\ successful,\ otherwise\ false\r\n
+numComments=3

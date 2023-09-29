@@ -3,13 +3,14 @@ package FairuzMuhammadJBusRA;
 /**
  * Represents an Account with specified Details
  * The Account class extends the Serializable Class
+ * The Account class also implements FileParser interface
  *
  * @author Fairuz Muhammad
- * @version PT3
+ * @version CS4
  * @see Serializable
  */
 
-public class Account extends Serializable{
+public class Account extends Serializable implements FileParser{
     /**
      * Email of the account
      */
@@ -50,5 +51,24 @@ public class Account extends Serializable{
                 ", Name: " + name +
                 ", Email: " + email +
                 ", Password: " + password;
+    }
+    
+    /**
+     * Writes the object's data to a file
+     * 
+     * @return An object representation of the written data
+     */
+    public Object write(){
+        return this;
+    }
+    
+    /**
+     * Reads data from a specified file and updates the object's state accordingly
+     * 
+     * @param filename The name or path of the file to read from
+     * @return true if the read operation was successful, otherwise false
+     */
+    public boolean read(String filename){
+        return false;
     }
 }
