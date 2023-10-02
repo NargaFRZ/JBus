@@ -124,7 +124,7 @@ public class Bus extends Serializable implements FileParser{
     }
     
     public void addSchedule(Timestamp calendar, int numberOfSeats){
-        Schedule newSchedule = new Schedule(calendar, this.capacity);
+        Schedule newSchedule = new Schedule(calendar, numberOfSeats);
         this.schedules.add(newSchedule);
     }
     
