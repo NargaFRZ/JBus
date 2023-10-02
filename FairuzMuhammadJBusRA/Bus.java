@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.text.*;
 import java.util.Map;
+import java.sql.Timestamp;
 
 /**
  * Represents a bus with specified details
@@ -12,7 +13,7 @@ import java.util.Map;
  * The Bus class also implements the FileParser interface
  *
  * @author Fairuz Muhammad
- * @version CS4
+ * @version PT4
  * @see Serializable
  */
 
@@ -122,11 +123,12 @@ public class Bus extends Serializable implements FileParser{
         return false;
     }
     
-    public void addSchedule(Calendar calendar){
+    public void addSchedule(Timestamp calendar, int numberOfSeats){
         Schedule newSchedule = new Schedule(calendar, this.capacity);
         this.schedules.add(newSchedule);
     }
     
+    /*
     public void printSchedule(Schedule schedule){
         SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
         System.out.println("Tanggal keberangkatan: " +sdf.format(schedule.departureSchedule.getTime()));
@@ -136,4 +138,5 @@ public class Bus extends Serializable implements FileParser{
             System.out.println(entry.getKey() + " : " + entry.getValue() + " ");
         }
     }
+    */
 }

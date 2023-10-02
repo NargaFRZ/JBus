@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Invoice
-comment0.text=\r\n\ Represents\ an\ Invoice\ with\ specified\ Details\r\n\ The\ Invoice\ class\ extends\ the\ Serializable\ Class\r\n\r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ CS4\r\n\ @see\ Serializable\r\n
+comment0.text=\r\n\ Represents\ an\ Invoice\ with\ specified\ Details\r\n\ The\ Invoice\ class\ extends\ the\ Serializable\ Class\r\n\r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ PT4\r\n\ @see\ Serializable\r\n
 comment1.params=id\ buyerId\ renterId
 comment1.target=Invoice(int,\ int,\ int)
 comment1.text=\r\n\ Construct\ a\ new\ Invoice\ object\ with\ the\ specified\ details\r\n\ This\ constructor\ is\ Protected\ which\ means\ it\ can\ only\ be\ accessed\ by\ the\ same\ package\ or\ by\ subclasses\r\n\ \r\n\ @param\ id\ The\ ID\ of\ the\ invoice,\ inherited\ from\ the\ Serializable\ Class\r\n\ @param\ buyerId\ The\ ID\ of\ the\ buyer\r\n\ @param\ renterId\ The\ ID\ of\ the\ renter\r\n\ @param\ time\ The\ time\ the\ invoice\ was\ made\r\n

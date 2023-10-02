@@ -1,13 +1,14 @@
 package FairuzMuhammadJBusRA;
 
 import java.util.Calendar;
+import java.sql.Timestamp;
 
 /**
  * Represents an Invoice with specified Details
  * The Invoice class extends the Serializable Class
  *
  * @author Fairuz Muhammad
- * @version CS4
+ * @version PT4
  * @see Serializable
  */
 
@@ -15,7 +16,7 @@ public class Invoice extends Serializable{
     /**
      * The time the invoice was made
      */
-    public Calendar time;
+    public Timestamp time;
     
     /**
      * The ID of the buyer
@@ -50,7 +51,7 @@ public class Invoice extends Serializable{
         super(id);
         this.buyerId = buyerId;
         this.renterId = renterId;
-        this.time = Calendar.getInstance();
+        this.time = new Timestamp(System.currentTimeMillis());
         this.rating = rating.NONE;
         this.status = status.WAITING;
     }
@@ -67,7 +68,7 @@ public class Invoice extends Serializable{
         super(id);
         this.buyerId = buyer.id;
         this.renterId = renter.id;
-        this.time = Calendar.getInstance();
+        this.time = new Timestamp(System.currentTimeMillis());
         this.rating = rating.NONE;
         this.status = status.WAITING;
     }
