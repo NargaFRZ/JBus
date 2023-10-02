@@ -44,7 +44,6 @@ public class Payment extends Invoice{
         this.busId = busId;
         this.departureDate = new Timestamp(departureDate.getTime() + 1000 * 60 * 60 * 24 * 2);
         this.busSeat = busSeat;
-        this.departureDate = departureDate;
     }
     
     /**
@@ -62,7 +61,6 @@ public class Payment extends Invoice{
         this.busId = busId;
         this.departureDate = new Timestamp(departureDate.getTime() + 1000 * 60 * 60 * 24 * 2);
         this.busSeat = busSeat;
-        this.departureDate = departureDate;
     }
     
     /**
