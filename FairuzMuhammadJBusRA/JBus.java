@@ -45,7 +45,7 @@ public class JBus{
 
     public static Bus createBus() {
         Price price = new Price(750000, 5);
-        Bus bus = new Bus(1, "Netlab Bus", Facility.LUNCH, price, 12, BusType.REGULER, City.BANDUNG, new Station(1, "Depok Terminal", City.DEPOK, "Jl. Margonda Raya"), new Station(2, "Halte UI", City.JAKARTA, "Universitas Indonesia"));
+        Bus bus = new Bus(1, "Netlab Bus", Facility.LUNCH, price, 25, BusType.REGULER, City.BANDUNG, new Station(1, "Depok Terminal", City.DEPOK, "Jl. Margonda Raya"), new Station(2, "Halte UI", City.JAKARTA, "Universitas Indonesia"));
         return bus;
     }
 
