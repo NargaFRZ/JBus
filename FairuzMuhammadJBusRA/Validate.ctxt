@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=Validate
-comment0.text=\r\n\ A\ utility\ class\ for\ filtering\ and\ processing\ Price\ objects\ based\ on\ specified\ criteria\r\n\r\n\ @author\ Fairuz\ Muhammad\r\n\ @version\ CS4\r\n
-comment1.params=
-comment1.target=Validate()
-comment2.params=list\ value\ less
-comment2.target=java.util.ArrayList\ filter(Price[],\ int,\ boolean)
-comment2.text=\r\n\ Filters\ an\ array\ of\ Price\ objects\ based\ on\ a\ specified\ value\ and\ criteria\r\n\ \r\n\ @param\ list\ An\ array\ of\ Price\ objects\r\n\ @param\ value\ The\ value\ to\ compare\ against\ each\ Price\ object's\ price\r\n\ @param\ less\ Represent\ if\ price\ is\ less\ than\ or\ equal\ to\ the\ value\r\n\ @return\ An\ ArrayList\ containing\ the\ filtered\ prices\r\n
-numComments=3
