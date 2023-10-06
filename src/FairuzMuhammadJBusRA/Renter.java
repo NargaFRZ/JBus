@@ -32,7 +32,7 @@ public class Renter extends Serializable{
      * @param companyName The name of the Renting Company
      */
     public Renter(int id, String companyName){
-        super(id);
+        super();
         this.companyName = companyName;
         this.address = "";
         this.phoneNumber = 0;
@@ -46,7 +46,7 @@ public class Renter extends Serializable{
      * @param address The address of the Renting Company
      */
     public Renter(int id, String companyName, String address){
-        super(id);
+        super();
         this.companyName = companyName;
         this.address = address;
         this.phoneNumber = 0;
@@ -60,7 +60,7 @@ public class Renter extends Serializable{
      * @param phoneNumber The phone number of the Renting Company
      */
     public Renter(int id, String companyName, int phoneNumber){
-        super (id);
+        super ();
         this.companyName = companyName;
         this.phoneNumber = phoneNumber;
         this.address = "";
@@ -75,7 +75,7 @@ public class Renter extends Serializable{
      * @param address The address of the Renting Company
      */
     public Renter(int id, String companyName, int phoneNumber, String address){
-        super (id);
+        super ();
         this.companyName = companyName;
         this.phoneNumber = phoneNumber;
         this.address = address;

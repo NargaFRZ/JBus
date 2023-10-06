@@ -35,7 +35,7 @@ public class Account extends Serializable implements FileParser{
      * @param password The Password of the Account
      */
     public Account(int id, String name, String email, String password){
-        super(id);
+        super();
         this.name = name;
         this.email = email;
         this.password = password;

@@ -53,7 +53,7 @@ public class Voucher extends Serializable implements FileParser{
      * @param cut The cut of the price that is applied after using a voucher
      */
     public Voucher(int id, String name, int code, Type type, double minimum, double cut){
-        super(id);
+        super();
         this.name = name;
         this.code = code;
         this.type = type;
