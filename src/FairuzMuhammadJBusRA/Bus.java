@@ -74,7 +74,7 @@ public class Bus extends Serializable implements FileParser{
      * @param arrival The station the bus is going to
      * @param departure The station the bus is departing from
      */
-    public Bus(int id, String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival){
+    public Bus(String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival){
         super();
         this.capacity = capacity;
         this.facility = facility;

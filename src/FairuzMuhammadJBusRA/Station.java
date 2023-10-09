@@ -33,7 +33,7 @@ public class Station extends Serializable{
      * @param city The City the Station is on, based on the City enum @see City
      * @param address The address of the Station
      */
-    public Station(int id, String stationName, City city, String address){
+    public Station(String stationName, City city, String address){
         super();
         this.stationName = stationName;
         this.city = city;
