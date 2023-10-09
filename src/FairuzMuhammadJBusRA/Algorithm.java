@@ -77,7 +77,6 @@ public class Algorithm {
         return res;
     }
 
-    /* CS5
     public static <T> boolean exists(T[] array, T value) {
         final Iterator<T> it = Arrays.stream(array).iterator();
         return exists(it, value);
@@ -219,5 +218,4 @@ public class Algorithm {
         }
         return list;
     }
-     */
 }
