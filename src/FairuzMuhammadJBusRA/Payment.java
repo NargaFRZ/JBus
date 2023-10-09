@@ -1,6 +1,6 @@
 package FairuzMuhammadJBusRA;
 
-import java.util.Calendar;
+import java.util.List;
 import java.text.*;
 import java.sql.Timestamp;
 
@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  * The Payment class extends the Invoice Class
  *
  * @author Fairuz Muhammad
- * @version PT4
+ * @version PT5
  * @see Invoice
  */
 public class Payment extends Invoice{
@@ -42,7 +42,7 @@ public class Payment extends Invoice{
     public Payment(int id, int buyerId, int renterId, int busId, String busSeat, Timestamp departureDate){
         super(id, buyerId, renterId);
         this.busId = busId;
-        this.departureDate = new Timestamp(departureDate.getTime() + 1000 * 60 * 60 * 24 * 2);
+        this.departureDate = new Timestamp(departureDate.getTime());
         this.busSeat = busSeat;
     }
     
@@ -50,8 +50,8 @@ public class Payment extends Invoice{
      * Construct a new Payment object with the specified details
      * 
      * @param id The ID of the Bus and Invoice, inherited from the Invoice class
-     * @param buyerId The ID of the Buyer, inherited from the Invoice class, includes the buyer from the Account class @see Account
-     * @param renterId The ID of the Renter, inherited from the Invoice class, includes the renter from the Account class @see Account
+     * @param buyer The ID of the Buyer, inherited from the Invoice class, includes the buyer from the Account class @see Account
+     * @param renter The ID of the Renter, inherited from the Invoice class, includes the renter from the Account class @see Account
      * @param busId The ID of the Bus
      * @param departureDate The departure date of the Bus
      * @param busSeat The seat number of the Bus
@@ -59,7 +59,7 @@ public class Payment extends Invoice{
     public Payment(int id, Account buyer, Renter renter, int busId, String busSeat, Timestamp departureDate){
         super(id, buyer, renter);
         this.busId = busId;
-        this.departureDate = new Timestamp(departureDate.getTime() + 1000 * 60 * 60 * 24 * 2);
+        this.departureDate = new Timestamp(departureDate.getTime());
         this.busSeat = busSeat;
     }
     
@@ -87,23 +87,53 @@ public class Payment extends Invoice{
     public int getBusId(){
         return busId;
     }
-    
-    public static boolean isAvailable(Timestamp departureSchedule, String seat, Bus bus){
-        for (Schedule s : bus.schedules){
-            if (s.departureSchedule.equals(departureSchedule) && s.isSeatAvailable(seat)){
-                return true;
+
+    public static Schedule availableSchedule(Timestamp departureSchedule, String seat, Bus bus){
+        for(Schedule s : bus.schedules){
+            if(s.departureSchedule.equals(departureSchedule) && s.isSeatAvailable(seat)){
+                return s;
             }
+        }
+        return null;
+    }
+
+    public static Schedule availableSchedule(Timestamp departureSchedule, List<String> seats, Bus bus) {
+        for(Schedule s : bus.schedules) {
+            if(s.departureSchedule.equals(departureSchedule) && s.isSeatAvailable(seats)) {
+                return s;
+            }
+        }
+        return null;
+    }
+
+    public static boolean makeBooking(Timestamp departureSchedule, String seat, Bus bus){
+        Schedule availableSchedule = availableSchedule(departureSchedule, seat, bus);
+        if(availableSchedule!=null){
+            availableSchedule.bookSeat(seat);
+            return true;
         }
         return false;
     }
-    
-    public static boolean makeBooking(Timestamp departureSchedule, String seat, Bus bus){
-        for (Schedule s : bus.schedules){
-            if (s.departureSchedule.equals(departureSchedule) && s.isSeatAvailable(seat)){
-                s.bookSeat(seat);
+
+    public static boolean makeBooking(Timestamp departureSchedule, List<String> seats, Bus bus) {
+        Schedule availableSchedule = availableSchedule(departureSchedule, seats, bus);
+        if (availableSchedule != null) {
+            if (availableSchedule.isSeatAvailable(seats)) {
+                availableSchedule.bookSeat(seats);
                 return true;
             }
         }
         return false;
     }
 }
+
+/* PT4
+public static boolean isAvailable(Timestamp departureSchedule, String seat, Bus bus){
+        for (Schedule s : bus.schedules){
+            if (s.departureSchedule.equals(departureSchedule) && s.isSeatAvailable(seat)){
+                return true;
+            }
+        }
+        return false;
+    }
+ */

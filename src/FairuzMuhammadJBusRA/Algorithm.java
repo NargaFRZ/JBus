@@ -5,6 +5,79 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Algorithm {
+    private Algorithm(){
+    }
+
+    public static <T> List<T> paginate(T[] array, int page, int pageSize, Predicate<T> pred){
+        if(array == null || pred == null || page < 0 || pageSize < 1){
+            throw new IllegalArgumentException("Invalid Input");
+        }
+
+        List<T> res = new ArrayList<>();
+        int start = page * pageSize;
+        int end = Math.min(start + pageSize, array.length);
+        int i;
+        for(i = start;i < end; i++){
+            if(pred.predicate(array[i])){
+                res.add(array[i]);
+            }
+        }
+        return res;
+    }
+
+    public static <T> List<T> paginate(Iterable<T> iterable, int page, int pageSize, Predicate<T> pred){
+        if(iterable == null || pred == null || page < 0 || pageSize < 1){
+            throw new IllegalArgumentException("Invalid Input");
+        }
+
+        List<T> res = new ArrayList<>();
+        int i = 0;
+        int start = page * pageSize;
+        int added = 0;
+
+        for (T item : iterable){
+            if(i++ < start){
+                continue;
+            }
+            if(added >= pageSize){
+                break;
+            }
+            if(pred.predicate(item)){
+                res.add(item);
+                added++;
+            }
+        }
+        return res;
+    }
+
+    public static <T> List<T> paginate(Iterator<T> iterator, int page, int pageSize, Predicate<T> pred){
+        if(iterator == null || pred == null || page < 0 || pageSize < 1){
+            throw new IllegalArgumentException("Invalid Input");
+        }
+
+        List <T> res = new ArrayList<>();
+        int i = 0;
+        int start = page * pageSize;
+        int added = 0;
+
+        while(iterator.hasNext()){
+            T item = iterator.next();
+            if (i++ < start){
+                continue;
+            }
+            if (added >= pageSize){
+                break;
+            }
+            if(pred.predicate(item)){
+                res.add(item);
+                added++;
+            }
+        }
+
+        return res;
+    }
+
+    /* CS5
     public static <T> boolean exists(T[] array, T value) {
         final Iterator<T> it = Arrays.stream(array).iterator();
         return exists(it, value);
@@ -146,4 +219,5 @@ public class Algorithm {
         }
         return list;
     }
+     */
 }

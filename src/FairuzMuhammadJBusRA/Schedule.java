@@ -1,6 +1,6 @@
 package FairuzMuhammadJBusRA;
 
-import java.util.Calendar;
+import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import java.text.SimpleDateFormat;
@@ -10,7 +10,7 @@ import java.sql.Timestamp;
  * Schedule Class
  *
  * @author Fairuz Muhammad
- * @version PT4
+ * @version PT5
  */
 public class Schedule{
     public Timestamp departureSchedule;
@@ -27,14 +27,29 @@ public class Schedule{
             seatAvailability.put("RA" + sn, true);
         }
     }
-    
+
     public boolean isSeatAvailable(String seat){
         return seatAvailability.containsKey(seat) && seatAvailability.get(seat);
     }
-    
+
+    public boolean isSeatAvailable(List<String> seats) {
+        for (String seat : seats) {
+            if(!isSeatAvailable(seat)){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void bookSeat(String seat){
         if(seatAvailability.containsKey(seat)){
             seatAvailability.put(seat, false);
+        }
+    }
+
+    public void bookSeat(List<String> seats) {
+        for (String seat : seats) {
+            bookSeat(seat);
         }
     }
     
@@ -60,5 +75,11 @@ public class Schedule{
             currentSeat++;
         }
         System.out.println("\n");
+    }
+
+    public String toString() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        long occupied = seatAvailability.values().stream().filter(occupiedSeat -> !occupiedSeat).count();
+        return "Schedule : " + dateFormat.format(departureSchedule) + "\nOccupied : " + occupied + "/" + seatAvailability.size();
     }
 }
