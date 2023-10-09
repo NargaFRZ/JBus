@@ -9,45 +9,13 @@ public class Algorithm {
     }
 
     public static <T> List<T> paginate(T[] array, int page, int pageSize, Predicate<T> pred){
-        if(array == null || pred == null || page < 0 || pageSize < 1){
-            throw new IllegalArgumentException("Invalid Input");
-        }
-
-        List<T> res = new ArrayList<>();
-        int start = page * pageSize;
-        int end = Math.min(start + pageSize, array.length);
-        int i;
-        for(i = start;i < end; i++){
-            if(pred.predicate(array[i])){
-                res.add(array[i]);
-            }
-        }
-        return res;
+        Iterator<T> it = Arrays.stream(array).iterator();
+        return paginate(it, page, pageSize, pred);
     }
 
     public static <T> List<T> paginate(Iterable<T> iterable, int page, int pageSize, Predicate<T> pred){
-        if(iterable == null || pred == null || page < 0 || pageSize < 1){
-            throw new IllegalArgumentException("Invalid Input");
-        }
-
-        List<T> res = new ArrayList<>();
-        int i = 0;
-        int start = page * pageSize;
-        int added = 0;
-
-        for (T item : iterable){
-            if(i++ < start){
-                continue;
-            }
-            if(added >= pageSize){
-                break;
-            }
-            if(pred.predicate(item)){
-                res.add(item);
-                added++;
-            }
-        }
-        return res;
+        Iterator<T> it = iterable.iterator();
+        return paginate(it, page, pageSize, pred);
     }
 
     public static <T> List<T> paginate(Iterator<T> iterator, int page, int pageSize, Predicate<T> pred){
