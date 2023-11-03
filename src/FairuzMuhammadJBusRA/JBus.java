@@ -25,6 +25,9 @@ public class JBus{
     /**
      * Main of the class, includes the testing of the other classes
      */
+
+    public JBus(){
+    }
     public static void main(String[] args) {
         //TP Modul 6
         /*
