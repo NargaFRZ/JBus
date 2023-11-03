@@ -10,7 +10,7 @@ package FairuzMuhammadJBusRA;
  * @see Serializable
  */
 
-public class Voucher extends Serializable implements FileParser{
+public class Voucher extends Serializable{
     /**
      * The Name of the person who uses the voucher
      */
@@ -117,24 +117,5 @@ public class Voucher extends Serializable implements FileParser{
         }
         
         return price.price;
-    }
-    
-    /**
-     * Writes the object's data to a file
-     * 
-     * @return An object representation of the written data
-     */
-    public Object write(){
-        return this;
-    }
-    
-    /**
-     * Reads data from a specified file and updates the object's state accordingly
-     * 
-     * @param filename The name or path of the file to read from
-     * @return true if the read operation was successful, otherwise false
-     */
-    public boolean read(String filename){
-        return false;
     }
 }

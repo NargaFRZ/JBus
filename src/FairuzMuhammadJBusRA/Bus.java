@@ -17,7 +17,7 @@ import java.sql.Timestamp;
  * @see Serializable
  */
 
-public class Bus extends Serializable implements FileParser{
+public class Bus extends Serializable{
     /**
      * Seat capacity of the bus
      */
@@ -104,28 +104,37 @@ public class Bus extends Serializable implements FileParser{
                 "Arrival: " + "\n" + arrival;
     }
     
+    public void addSchedule(Timestamp calendar){
+        try {
+            for (Schedule schedule : this.schedules) {
+                if (schedule.departureSchedule.equals(calendar)) {
+                    throw new Exception("Jadwal dengan waktu yang sama sudah ada.");
+                }
+            }
+            Schedule newSchedule = new Schedule(calendar, this.capacity);
+            this.schedules.add(newSchedule);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     /**
      * Writes the object's data to a file
-     * 
+     *
      * @return An object representation of the written data
      */
     public Object write(){
         return null;
     }
-    
+
     /**
      * Reads data from a specified file and updates the object's state accordingly
-     * 
+     *
      * @param filename The name or path of the file to read from
      * @return true if the read operation was successful, otherwise false
      */
     public boolean read(String filename){
         return false;
-    }
-    
-    public void addSchedule(Timestamp calendar){
-        Schedule newSchedule = new Schedule(calendar, this.capacity);
-        this.schedules.add(newSchedule);
     }
     
     /*

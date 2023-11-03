@@ -10,7 +10,7 @@ package FairuzMuhammadJBusRA;
  * @see Serializable
  */
 
-public class Account extends Serializable implements FileParser{
+public class Account extends Serializable{
     /**
      * Email of the account
      */
@@ -46,29 +46,10 @@ public class Account extends Serializable implements FileParser{
      * 
      * @return A string containing the account details
      */
-    public String toString(){
-        return  "Account ID: " + super.id +
+    public String toString() {
+        return "Account ID: " + super.id +
                 ", Name: " + name +
                 ", Email: " + email +
                 ", Password: " + password;
-    }
-    
-    /**
-     * Writes the object's data to a file
-     * 
-     * @return An object representation of the written data
-     */
-    public Object write(){
-        return this;
-    }
-    
-    /**
-     * Reads data from a specified file and updates the object's state accordingly
-     * 
-     * @param filename The name or path of the file to read from
-     * @return true if the read operation was successful, otherwise false
-     */
-    public boolean read(String filename){
-        return false;
     }
 }
