@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="25cf6050-d540-4ed5-9004-45ce179bdbde" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/Algorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/Bus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/FileParser.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/JBus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/JBus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/Renter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/Renter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/Voucher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FairuzMuhammadJBusRA/Voucher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +83,7 @@
       <workItem from="1697438455565" duration="3329000" />
       <workItem from="1698934999206" duration="2446000" />
       <workItem from="1698937478416" duration="369000" />
-      <workItem from="1698979620862" duration="4674000" />
+      <workItem from="1698979620862" duration="5317000" />
     </task>
     <servers />
   </component>

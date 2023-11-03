@@ -43,6 +43,11 @@ public class JBus{
         }
          */
 
+        Renter testRegex = new Renter("Lebron_", 628143242);
+        Renter testRegexFail = new Renter("lebron_", 6281);
+        System.out.println(testRegex.validate());
+        System.out.println(testRegexFail.validate());
+
         try {
             String filepath = "E:\\Code\\Java\\JBus\\data\\buses_CS.json";
             JsonTable<Bus> busList = new JsonTable<>(Bus.class,filepath);
