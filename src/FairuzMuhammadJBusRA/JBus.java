@@ -28,29 +28,9 @@ public class JBus{
 
     public JBus(){
     }
-    public static void main(String[] args) {
-        //TP Modul 6
-        /*
-        String filepath = "E:\\Code\\Java\\JBus\\data\\station.json";
-        Gson gson = new Gson();
 
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath));
-            List<Station> stationjson = gson.fromJson(bufferedReader, new TypeToken<List<Station>>() {
-            }.getType());
-            stationjson.forEach(e -> System.out.println(e.toString()));
-            System.out.println();
-            bufferedReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-         */
-
-        Renter testRegex = new Renter("Lebron_", 628143242);
-        Renter testRegexFail = new Renter("lebron_", 6281);
-        System.out.println(testRegex.validate());
-        System.out.println(testRegexFail.validate());
-
+    public static void main(String[] args) throws InterruptedException {
+        /* CS6
         try {
             String filepath = "E:\\Code\\Java\\JBus\\data\\buses_CS.json";
             JsonTable<Bus> busList = new JsonTable<>(Bus.class,filepath);
@@ -60,7 +40,26 @@ public class JBus{
         catch (Throwable t){
             t.printStackTrace();
         }
+         */
 
+        try {
+            String filepath = "E:\\Code\\Java\\JBus\\data\\accountDatabase.json";
+            JsonTable<Account> AccountList = new JsonTable<>(Account.class, filepath);
+            AccountList.add(new Account("Dio", "dio@gmail.com", "NgikNgok"));
+            AccountList.writeJson();
+            System.out.println(AccountList);
+        }
+        catch (Throwable t){
+            t.printStackTrace();
+        }
+
+        Bus bus = createBus();
+        bus.schedules.forEach(Schedule::printSchedule);
+        for(int i =0; i < 10; i++){
+            BookingThread thread = new BookingThread("Thread " + i,bus, Timestamp.valueOf("2023-07-27 19:00:00"));
+        }
+        Thread.sleep(1000);
+        bus.schedules.forEach(Schedule::printSchedule);
     }
 
     public static List<Bus> filterByDeparture(List<Bus> buses, City departure, int page, int pageSize) {
@@ -68,7 +67,7 @@ public class JBus{
     }
 
     public static List<Bus> filterByPrice(List<Bus> buses, int min, int max){
-        return Algorithm.<Bus>collect(buses, bus -> bus.price.price >= min && bus.price.price <= max );
+        return Algorithm.<Bus>collect(buses, bus -> ((bus.price.price >= min) && (bus.price.price <= max)));
     }
 
     public static Bus filterBusId(List<Bus> buses, int id){
@@ -77,5 +76,13 @@ public class JBus{
 
     public static List<Bus> filterByDepartureAndArrival(List<Bus> buses, City departure, City arrival, int page, int pageSize) {
         return Algorithm.paginate(buses, page, pageSize, bus -> bus.departure.city.equals(departure) && bus.arrival.city.equals(arrival));
+    }
+
+    public static Bus createBus() {
+        Price price = new Price(750000, 5);
+        Bus bus = new Bus("Netlab Bus", Facility.LUNCH, price, 25, BusType.REGULER, City.BANDUNG, new Station("Depok Terminal", City.DEPOK, "Jl. Margonda Raya"), new Station("Halte UI", City.JAKARTA, "Universitas Indonesia"));
+        Timestamp timestamp = Timestamp.valueOf("2023-07-27 19:00:00");
+        bus.addSchedule(timestamp);
+        return bus;
     }
 }

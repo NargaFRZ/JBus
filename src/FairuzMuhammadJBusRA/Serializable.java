@@ -13,38 +13,35 @@ public class Serializable{
      * The ID of Serializable object
      */
     public final int id;
-    private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
+    private static HashMap<Class<?>, Integer> mapCounter = new HashMap<Class <?>, Integer>();
 
     /**
      * Constructs a new Serializable object with specified ID
      */
-    protected Serializable (){
-        this.id = mapCounter.getOrDefault(getClass(), 0);
-        mapCounter.put(getClass(), this.id + 1);
+    protected Serializable(){
+        Integer counter = mapCounter.get(getClass());
+        counter = counter == null ? 0 : counter + 1;
+        mapCounter.put(getClass(), counter);
+        this.id = counter;
     }
 
-    public static <T> Integer getLastAssignedId(Class<T> cls){
-        return mapCounter.get(cls);
+    public static <T> Integer getLastAssignedId(Class<T> getter ){
+        return mapCounter.get(getter);
     }
 
-    public static <T> Integer setLastAssignedId(Class<T> cls, int id){
-        return mapCounter.put(cls, id);
+    public static <T> Integer setLastAssignedId(Class<T> setter, int number){
+        return mapCounter.put(setter, number);
     }
 
-    public int compareTo(Serializable o){
-        return Integer.compare(this.id, o.id);
+    public int compareTo(Serializable temp){
+        return ((Integer)this.id).compareTo(temp.id);
     }
 
-    public boolean equals(Object obj){
-        if(this == obj) return true;
-        if(obj instanceof Serializable){
-            Serializable other = (Serializable) obj;
-            return this.id == other.id;
-        }
-        return false;
+    public boolean equals(Serializable temp){
+        return temp.id == this.id;
     }
 
-    public boolean equals(Serializable obj){
-        return this.id == obj.id;
+    public boolean equals(Object object){
+        return object instanceof Serializable && ((Serializable) object).id == this.id;
     }
 }

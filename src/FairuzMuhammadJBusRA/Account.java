@@ -25,16 +25,18 @@ public class Account extends Serializable{
      * Password of the Account
      */
     public String password;
+
+    public static final String REGEX_EMAIL = "^[a-zA-Z0-9][a-zA-Z0-9]+@[a-zA-Z.]+?\\.[a-zA-Z]+?$";
+    public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$";
     
     /**
      * Construct a new Account with the specified Details
-     * 
-     * @param id The ID of the Account, inherited from class Serializable
+     *
      * @param name The Name of the Account
      * @param email The Email of the Account
      * @param password The Password of the Account
      */
-    public Account(int id, String name, String email, String password){
+    public Account(String name, String email, String password){
         super();
         this.name = name;
         this.email = email;
@@ -51,5 +53,12 @@ public class Account extends Serializable{
                 ", Name: " + name +
                 ", Email: " + email +
                 ", Password: " + password;
+    }
+
+    public boolean validate(){
+        if (this.email.matches(REGEX_EMAIL) && this.password.matches(REGEX_PASSWORD)){
+            return true;
+        }
+        return false;
     }
 }
