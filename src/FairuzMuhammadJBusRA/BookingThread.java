@@ -11,14 +11,14 @@ public class BookingThread extends Thread{
         this.start();
     }
     public void run(){
-        System.out.println("Thread " + this.getName() + " ID : " + Thread.currentThread().getId() + " is running");
+        System.out.println(this.getName() + " ID : " + Thread.currentThread().getId() + " is running");
         synchronized (bus) {
             boolean booking = Payment.makeBooking(timestamp, "RA01", bus);
             if(booking){
-                System.out.println("Thread " + this.getName() + " Berhasil Melakukan Booking");
+                System.out.println(this.getName() + " Berhasil Melakukan Booking");
             }
             else{
-                System.out.println("Thread " + this.getName() + " Gagal Melakukan Booking");
+                System.out.println(this.getName() + " Gagal Melakukan Booking");
             }
         }
     }
