@@ -47,7 +47,9 @@ public class JBus{
             JsonTable<Account> AccountList = new JsonTable<>(Account.class, filepath);
             AccountList.add(new Account("Dio", "dio@gmail.com", "NgikNgok"));
             AccountList.writeJson();
-            System.out.println(AccountList);
+            for (Account account : AccountList) {
+                System.out.println(account);
+            }
         }
         catch (Throwable t){
             t.printStackTrace();
