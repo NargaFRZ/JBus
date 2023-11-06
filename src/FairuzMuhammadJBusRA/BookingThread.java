@@ -16,7 +16,7 @@ public class BookingThread extends Thread{
         synchronized (bus) {
             boolean booking = Payment.makeBooking(timestamp, "RA01", bus);
             if(booking){
-                System.out.println("Thread " + this.getName() + " successfully booked seat ER01 at " + timestamp);
+                System.out.println("Thread " + this.getName() + " berhasil booking RA01 pada " + timestamp);
             }
         }
     }
