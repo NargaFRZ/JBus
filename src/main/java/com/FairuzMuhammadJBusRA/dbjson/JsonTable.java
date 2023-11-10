@@ -1,4 +1,4 @@
-package com.FairuzMuhammadJBusRA;
+package com.FairuzMuhammadJBusRA.dbjson;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;

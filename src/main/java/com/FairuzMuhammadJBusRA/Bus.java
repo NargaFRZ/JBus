@@ -2,10 +2,8 @@ package com.FairuzMuhammadJBusRA;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.text.*;
-import java.util.Map;
 import java.sql.Timestamp;
+import com.FairuzMuhammadJBusRA.dbjson.Serializable;
 
 /**
  * Represents a bus with specified details
@@ -64,7 +62,6 @@ public class Bus extends Serializable{
     /**
      * Create a new Bus based on the specified details
      * 
-     * @param ID The ID number of the bus, inherited from Serializable class
      * @param name The name of the Bus
      * @param facility The facility of the Bus
      * @param price The price details of the Bus

@@ -1,5 +1,6 @@
 package com.FairuzMuhammadJBusRA;
 
+import com.FairuzMuhammadJBusRA.dbjson.Serializable;
 
 /**
  * Represent the review given with the specified details

@@ -1,5 +1,7 @@
 package com.FairuzMuhammadJBusRA;
 
+import com.FairuzMuhammadJBusRA.dbjson.Serializable;
+
 /**
  * Represents a Station with specified Details
  * The Station class extends the Serializable Class

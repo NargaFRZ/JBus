@@ -1,4 +1,4 @@
-package com.FairuzMuhammadJBusRA;
+package com.FairuzMuhammadJBusRA.dbjson;
 import java.util.HashMap;
 
 /**
@@ -8,7 +8,7 @@ import java.util.HashMap;
  * @version CS5
  */
 
-public class Serializable{
+public class Serializable implements Comparable<Serializable>{
     /**
      * The ID of Serializable object
      */

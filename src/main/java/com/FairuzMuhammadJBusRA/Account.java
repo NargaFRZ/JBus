@@ -1,5 +1,7 @@
 package com.FairuzMuhammadJBusRA;
 
+import com.FairuzMuhammadJBusRA.dbjson.Serializable;
+
 /**
  * Represents an Account with specified Details
  * The Account class extends the Serializable Class
@@ -26,7 +28,11 @@ public class Account extends Serializable{
      */
     public String password;
 
-    public static final String REGEX_EMAIL = "^[a-zA-Z0-9][a-zA-Z0-9]+@[a-zA-Z.]+?\\.[a-zA-Z]+?$";
+    public Renter company;
+
+    public double balance;
+
+    public static final String REGEX_EMAIL = "^[a-zA-Z0-9]+@[a-zA-Z_]+?\\.[a-zA-Z.]+[a-zA-Z]+$";
     public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$";
     
     /**
@@ -41,6 +47,8 @@ public class Account extends Serializable{
         this.name = name;
         this.email = email;
         this.password = password;
+        this.company = null;
+        this.balance = 0;
     }
     
     /**

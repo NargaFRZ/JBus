@@ -1,5 +1,7 @@
 package com.FairuzMuhammadJBusRA;
 
+import com.FairuzMuhammadJBusRA.dbjson.Serializable;
+
 /**
  * Represents a Renting Company with specified Details
  * The Renter class extends the Serializable Class

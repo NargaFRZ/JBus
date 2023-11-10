@@ -1,5 +1,7 @@
 package com.FairuzMuhammadJBusRA;
 
+import com.FairuzMuhammadJBusRA.dbjson.Serializable;
+
 /**
  * Represents a voucher with specified Details
  * The Voucher class extends the Serializable Class

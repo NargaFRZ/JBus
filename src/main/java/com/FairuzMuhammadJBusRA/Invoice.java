@@ -1,7 +1,7 @@
 package com.FairuzMuhammadJBusRA;
 
-import java.util.Calendar;
 import java.sql.Timestamp;
+import com.FairuzMuhammadJBusRA.dbjson.Serializable;
 
 /**
  * Represents an Invoice with specified Details
