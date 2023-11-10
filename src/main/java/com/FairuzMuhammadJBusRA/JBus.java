@@ -1,5 +1,7 @@
 package com.FairuzMuhammadJBusRA;
 
+import com.FairuzMuhammadJBusRA.dbjson.JsonDBEngine;
+import com.FairuzMuhammadJBusRA.dbjson.JsonAutowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.sql.Timestamp;
@@ -20,8 +22,10 @@ public class JBus{
     /**
      * Main of the class, includes the testing of the other classes
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
+        JsonDBEngine.Run(JBus.class);
         SpringApplication.run(JBus.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> JsonDBEngine.join()));
     }
 
     public static List<Bus> filterByDeparture(List<Bus> buses, City departure, int page, int pageSize) {
