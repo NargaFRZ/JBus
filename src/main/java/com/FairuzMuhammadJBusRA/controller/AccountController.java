@@ -117,6 +117,10 @@ public class AccountController implements BasicGetController<Account> {
         }
 
         Renter renter = new Renter(companyName, address, phoneNumber);
+        if (!renter.validate()) {
+            return new BaseResponse<>(false, "Gagal register: Regex tidak sesuai", null);
+        }
+        
         account.company = renter;
 
         return new BaseResponse<>(true, "Berhasil register Akun sebagai renter", renter);
