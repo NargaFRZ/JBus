@@ -99,7 +99,7 @@ public class AccountController implements BasicGetController<Account> {
     }
 
     @PostMapping("/{id}/registerRenter")
-    BaseResponse<Account>registerRenter
+    BaseResponse<Renter>registerRenter
             (
                     @PathVariable int id,
                     @RequestParam String companyName,
@@ -119,7 +119,7 @@ public class AccountController implements BasicGetController<Account> {
         Renter renter = new Renter(companyName, address, phoneNumber);
         account.company = renter;
 
-        return new BaseResponse<>(true, "Berhasil register Akun sebagai renter", account);
+        return new BaseResponse<>(true, "Berhasil register Akun sebagai renter", renter);
     }
 
     @PostMapping("/{id}/topUp")

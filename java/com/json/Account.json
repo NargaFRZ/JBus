@@ -1,1 +1,22 @@
-[{"email":"lebronjames@gmail.com","name":"Lebron James","password":"1fed3a9efa865596e6c692dd23ad8d40","company":{"address":"2124078000","companyName":"Lakers","phoneNumber":"Los Angeles","id":0},"balance":725000.0,"id":0},{"email":"stephencurry@gmail.com","name":"Stephen Curry","password":"17c30ba25340a049bf8148ae415d2eb6","balance":0.0,"id":1}]
+[
+  {
+    "email": "lebronjames@gmail.com",
+    "name": "Lebron James",
+    "password": "1fed3a9efa865596e6c692dd23ad8d40",
+    "company": {
+      "address": "2124078000",
+      "companyName": "Lakers",
+      "phoneNumber": "Los Angeles",
+      "id": 0
+    },
+    "balance": 725000.0,
+    "id": 0
+  },
+  {
+    "email": "stephencurry@gmail.com",
+    "name": "Stephen Curry",
+    "password": "17c30ba25340a049bf8148ae415d2eb6",
+    "balance": 0.0,
+    "id": 1
+  }
+]
