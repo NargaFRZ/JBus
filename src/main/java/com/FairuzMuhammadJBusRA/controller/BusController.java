@@ -64,7 +64,6 @@ public class BusController implements BasicGetController<Bus> {
                 return new BaseResponse<>(false, "Bus not found", null);
             }
 
-            // Parse the time string to a Timestamp
             Timestamp scheduleTime;
             try {
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
