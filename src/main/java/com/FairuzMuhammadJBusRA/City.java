@@ -42,5 +42,13 @@ public enum City
     /**
      * City is Yogyakarta
      */
-    YOGYAKARTA;
+    YOGYAKARTA,
+
+    TANGERANG,
+
+    BOGOR,
+
+    BEKASI,
+
+    SUKABUMI;
 }

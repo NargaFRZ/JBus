@@ -12,11 +12,11 @@ import java.security.NoSuchAlgorithmException;
 @RestController
 @RequestMapping("/account")
 public class AccountController implements BasicGetController<Account> {
-    public static @JsonAutowired(value = Account.class, filepath = "java/com/json/Account.json")
+    public static @JsonAutowired(value = Account.class, filepath = "src/main/java/com/FairuzMuhammadJBusRA/json/Account.json")
     JsonTable<Account> accountTable;
 
     public JsonTable<Account> getJsonTable() {
-        return accountTable;
+        return AccountController.accountTable;
     }
 
     @GetMapping
@@ -120,7 +120,7 @@ public class AccountController implements BasicGetController<Account> {
         if (!renter.validate()) {
             return new BaseResponse<>(false, "Gagal register: Regex tidak sesuai", null);
         }
-        
+
         account.company = renter;
 
         return new BaseResponse<>(true, "Berhasil register Akun sebagai renter", renter);

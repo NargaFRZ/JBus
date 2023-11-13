@@ -23,11 +23,11 @@ public class Payment extends Invoice{
      * The departure date of the Bus
      */
     public Timestamp departureDate;
-    
+
     /**
      * The seat number of the Bus
      */
-    public String busSeat;
+    public List<String> busSeat;
     
     /**
      * Construct a new Payment object with the specified details
@@ -39,7 +39,7 @@ public class Payment extends Invoice{
      * @param departureDate The departure date of the Bus
      * @param busSeat The seat number of the Bus
      */
-    public Payment(int id, int buyerId, int renterId, int busId, String busSeat, Timestamp departureDate){
+    public Payment(int id, int buyerId, int renterId, int busId, List<String> busSeat, Timestamp departureDate){
         super(id, buyerId, renterId);
         this.busId = busId;
         this.departureDate = new Timestamp(departureDate.getTime());
@@ -56,7 +56,7 @@ public class Payment extends Invoice{
      * @param departureDate The departure date of the Bus
      * @param busSeat The seat number of the Bus
      */
-    public Payment(int id, Account buyer, Renter renter, int busId, String busSeat, Timestamp departureDate){
+    public Payment(int id, Account buyer, Renter renter, int busId, List<String> busSeat, Timestamp departureDate){
         super(id, buyer, renter);
         this.busId = busId;
         this.departureDate = new Timestamp(departureDate.getTime());

@@ -25,7 +25,7 @@ public class Bus extends Serializable{
      * Facility of the bus, calling another enum which is the Facility enum
      * @see Facility
      */
-    public Facility facility;
+    public List<Facility> facilities;
     
     /**
      * Name of the bus
@@ -36,11 +36,6 @@ public class Bus extends Serializable{
      * Price details of the Bus
      */
     public Price price;
-    
-    /**
-     * The city the bus is going to
-     */
-    public City city;
     
     /**
      * The type of bus according to the BusType enum @see BusType
@@ -58,27 +53,28 @@ public class Bus extends Serializable{
     public Station departure;
     
     public List<Schedule> schedules;
+
+    public int accountId;
     
     /**
      * Create a new Bus based on the specified details
      * 
      * @param name The name of the Bus
-     * @param facility The facility of the Bus
+     * @param facilities The facilities of the Bus
      * @param price The price details of the Bus
      * @param capacity The seating capacity of the Bus
      * @param busType The type of Bus
-     * @param city The city the Bus is going to
      * @param arrival The station the bus is going to
      * @param departure The station the bus is departing from
      */
-    public Bus(String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival){
+    public Bus(int accountId, String name, List<Facility> facilities, Price price, int capacity, BusType busType, Station departure, Station arrival){
         super();
+        this.accountId = accountId;
         this.capacity = capacity;
-        this.facility = facility;
+        this.facilities = facilities;
         this.name = name;
         this.price = price;
         this.busType = busType;
-        this.city = city;
         this.arrival = arrival;
         this.departure = departure;
         this.schedules = new ArrayList<>();
@@ -92,11 +88,10 @@ public class Bus extends Serializable{
     public String toString(){
         return  "Bus ID: " + super.id +
                 ", Bus Name: " + name +
-                ", Facility: " + facility +
+                ", Facilities: " + facilities +
                 ", " + price + 
                 ", Capacity: " + capacity +
-                ", Bus Type: " + busType +
-                ", City: " + city + "\n" +
+                ", Bus Type: " + busType + "\n" +
                 "Departure: " + "\n" + departure + "\n" +
                 "Arrival: " + "\n" + arrival;
     }
@@ -133,16 +128,4 @@ public class Bus extends Serializable{
     public boolean read(String filename){
         return false;
     }
-    
-    /*
-    public void printSchedule(Schedule schedule){
-        SimpleDateFormat sdf = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
-        System.out.println("Tanggal keberangkatan: " +sdf.format(schedule.departureSchedule.getTime()));
-        System.out.println("Daftar Kursi dan ketersediaan kursinya");
-        
-        for(Map.Entry<String,Boolean> entry : schedule.seatAvailability.entrySet()){
-            System.out.println(entry.getKey() + " : " + entry.getValue() + " ");
-        }
-    }
-    */
 }
