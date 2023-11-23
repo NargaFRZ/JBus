@@ -38,7 +38,7 @@ public class Algorithm {
     }
 
     public static <T> List<T> collect(Iterator<T> iterator, Predicate<T> pred) {
-        List<T> list = new ArrayList();
+        List<T> list = new ArrayList<>();
 
         while(iterator.hasNext()) {
             T tempVar = iterator.next();
@@ -184,7 +184,7 @@ public class Algorithm {
     }
 
     public static <T> List<T> paginate(Iterator<T> iterator, int page, int pagesize, Predicate<T> pred) {
-        List<T> pageResult = new ArrayList();
+        List<T> pageResult = new ArrayList<>();
         int count = 0;
         int startindex = page * pagesize;
         int endindex = startindex + pagesize;
