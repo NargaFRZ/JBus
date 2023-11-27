@@ -63,7 +63,7 @@ public class Renter extends Serializable{
      * @param phoneNumber The phone number of the Renting Company
      * @param address The address of the Renting Company
      */
-    public Renter(String companyName, String phoneNumber, String address){
+    public Renter(String companyName, String address, String phoneNumber){
         super ();
         this.companyName = companyName;
         this.phoneNumber = phoneNumber;
