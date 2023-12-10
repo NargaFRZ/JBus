@@ -1,28 +1,28 @@
 package com.FairuzMuhammadJBusRA;
 
 /**
- * Represents the Rating given by the Customer
- * The Rating Class extends the Invoice class
+ * Represents a rating system, tracking the total number of ratings and their cumulative score.
+ * It allows for inserting new ratings and calculating the average rating.
  *
  * @author Fairuz Muhammad
- * @version PT3
+ * @version FINAL
  */
 
 public class Rating{
     /**
-     * How many person have given a rating
-     * This is a private variable
+     * The count of ratings received.
+     * This variable is private to ensure data encapsulation.
      */
     private long count;
     
     /**
-     * The total of the rating score given
-     * This is a private variable
+     * The cumulative score of all ratings.
+     * This variable is private to maintain the integrity of the rating system.
      */
     private long total;
     
     /**
-     * Construct a Rating with the total and count set to 0
+     * Constructs a new Rating object with initial total and count set to 0.
      */
     public Rating(){
         this.total = 0;
@@ -30,9 +30,9 @@ public class Rating{
     }
     
     /**
-     * Insert a rating, which adds to the total and also add to the count
-     * 
-     * @param rating The rating that was given
+     * Adds a new rating to this rating system. It increases the total rating score and increments the count.
+     *
+     * @param rating The rating score to add. It should be a positive integer.
      */
     public void insert(int rating){
         this.total += rating;
@@ -40,9 +40,10 @@ public class Rating{
     }
     
     /**
-     * Get the average of the rating
-     * 
-     * @return Returns 0 if the count is 0 else Returns The average from the rating with the formula Total/Rating
+     * Calculates the average rating.
+     * If no ratings have been added, returns 0.
+     *
+     * @return The average rating as a double. Returns 0 if count is 0.
      */
     public double getAverage(){
         double rating;
@@ -56,23 +57,27 @@ public class Rating{
     }
     
     /**
-     * Makes the Count variable to be able to be accessed
+     * Retrieves the count of ratings received.
+     *
+     * @return The count of ratings.
      */
     public long getCount(){
         return this.count;
     }
     
     /**
-     * Makes the Total variable to be able to be accessed
+     * Retrieves the total cumulative score of the ratings.
+     *
+     * @return The total cumulative score.
      */
     public long getTotal(){
         return this.total;
     }
     
     /**
-     * Returns a string containing the details of the Rating
-     * 
-     * @return A string containing the details of the Rating
+     * Returns a string representation of the Rating object, including total and count of ratings.
+     *
+     * @return A string detailing the total and count of ratings.
      */
     public String toString(){
         return  "Count: " + count +

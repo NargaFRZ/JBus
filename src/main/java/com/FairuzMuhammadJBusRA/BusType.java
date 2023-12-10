@@ -5,7 +5,7 @@ package com.FairuzMuhammadJBusRA;
  * The Type of The Bus
  *
  * @author Fairuz Muhammad
- * @version PT3
+ * @version FINAL
  */
 public enum BusType{
     /**

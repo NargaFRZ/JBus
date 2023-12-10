@@ -8,7 +8,7 @@ import com.FairuzMuhammadJBusRA.dbjson.Serializable;
  * The Invoice class extends the Serializable Class
  *
  * @author Fairuz Muhammad
- * @version PT4
+ * @version FINAL
  * @see Serializable
  */
 
@@ -39,11 +39,11 @@ public class Invoice extends Serializable{
     public PaymentStatus status;
     
     /**
-     * Construct a new Invoice object with the specified details
-     * This constructor is Protected which means it can only be accessed by the same package or by subclasses
+     * Creates a new Invoice object with the specified buyer and renter IDs.
+     * Initializes the invoice with the current timestamp, default rating as NONE, and default status as WAITING.
      * 
-     * @param buyerId The ID of the buyer
-     * @param renterId The ID of the renter
+     * @param buyerId The ID of the buyer.
+     * @param renterId The ID of the renter.
      */
     protected Invoice(int buyerId, int renterId){
         super();
@@ -55,12 +55,13 @@ public class Invoice extends Serializable{
     }
     
     /**
-     * Construct a new Invoice object with the specified details
+     * Creates a new Invoice object with specified buyer and renter.
+     * Initializes the invoice with the current timestamp, default rating as NONE, and default status as WAITING.
      * 
-     * @param id The ID of the invoice, inherited from the Serializable Class
-     * @param buyer The ID of the buyer, from the class Account @see Account
-     * @param renter The ID of the renter, from the class Renter @see Renter
-     * @param time The time the invoice was made
+     * @param buyer The Account object representing the buyer.
+     * @param renter The Renter object representing the renter.
+     * @see Account
+     * @see Renter
      */
     public Invoice(Account buyer, Renter renter){
         super();

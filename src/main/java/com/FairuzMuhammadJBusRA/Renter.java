@@ -3,38 +3,48 @@ package com.FairuzMuhammadJBusRA;
 import com.FairuzMuhammadJBusRA.dbjson.Serializable;
 
 /**
- * Represents a Renting Company with specified Details
- * The Renter class extends the Serializable Class
+ * Represents a renting company with specific details.
+ * The Renter class extends the Serializable class to allow serialization.
  *
  * @author Fairuz Muhammad
- * @version CS3
+ * @version FINAL
  * @see Serializable
  */
 
 public class Renter extends Serializable{
     /**
-     * Address of the Company
+     * Address of the renting company.
      */
     public String address;
     
     /**
-     * Name of the Company
+     * Name of the renting company.
      */
     public String companyName;
     
     /**
-     * Phone Number of the Company
+     * Phone number of the renting company.
      */
     public String phoneNumber;
 
+    /**
+     * Regular expression pattern for validating the name of the renting company.
+     * The pattern requires the name to start with an uppercase letter followed by
+     * 4 to 20 alphanumeric characters or underscores.
+     */
     private static final String REGEX_NAME = "^[A-Z][a-zA-Z0-9_]{4,20}$";
 
+    /**
+     * Regular expression pattern for validating the phone number of the renting company.
+     * The pattern requires the phone number to consist of 9 to 12 numeric digits.
+     */
     private static final String REGEX_PHONE_NUMBER = "^[0-9]{9,12}$";
     
     /**
-     * Constructs a new Renter object with the specified details
+     * Constructs a new Renter object with the specified company name.
+     * The address and phone number are initialized to empty strings.
      *
-     * @param companyName The name of the Renting Company
+     * @param companyName The name of the renting company.
      */
     public Renter(String companyName){
         super();
@@ -44,10 +54,11 @@ public class Renter extends Serializable{
     }
 
     /**
-     * Constructs a new Renter object with the specified details
+     * Constructs a new Renter object with the specified company name and phone number.
+     * The address is initialized to an empty string.
      *
-     * @param companyName The name of the Renting Company
-     * @param phoneNumber The phone number of the Renting Company
+     * @param companyName The name of the renting company.
+     * @param phoneNumber The phone number of the renting company.
      */
     public Renter(String companyName, String phoneNumber){
         super();
@@ -57,11 +68,11 @@ public class Renter extends Serializable{
     }
 
     /**
-     * Constructs a new Renter object with the specified details
+     * Constructs a new Renter object with specified company name, address, and phone number.
      *
-     * @param companyName The name of the Renting Company
-     * @param phoneNumber The phone number of the Renting Company
-     * @param address The address of the Renting Company
+     * @param companyName The name of the renting company.
+     * @param address     The address of the renting company.
+     * @param phoneNumber The phone number of the renting company.
      */
     public Renter(String companyName, String address, String phoneNumber){
         super ();
@@ -70,6 +81,11 @@ public class Renter extends Serializable{
         this.address = address;
     }
 
+    /**
+     * Validates the company name and phone number against specified regular expressions.
+     *
+     * @return true if both the company name and phone number are valid, false otherwise.
+     */
     public boolean validate(){
         if (this.companyName.matches(REGEX_NAME) && this.phoneNumber.matches(REGEX_PHONE_NUMBER)){
             return true;

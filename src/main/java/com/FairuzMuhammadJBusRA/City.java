@@ -4,7 +4,7 @@ package com.FairuzMuhammadJBusRA;
  * Represents the city the Bus is on
  *
  * @author Fairuz Muhammad
- * @version CS2
+ * @version FINAL
  */
 
 public enum City
@@ -44,11 +44,23 @@ public enum City
      */
     YOGYAKARTA,
 
+    /**
+     * City is Tangerang
+     */
     TANGERANG,
 
+    /**
+     * City is Bogor
+     */
     BOGOR,
 
+    /**
+     * City is Bekasi
+     */
     BEKASI,
 
+    /**
+     * City is Sukabumi
+     */
     SUKABUMI;
 }

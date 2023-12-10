@@ -3,29 +3,30 @@ package com.FairuzMuhammadJBusRA;
 import com.FairuzMuhammadJBusRA.dbjson.Serializable;
 
 /**
- * Represent the review given with the specified details
- * The Review class extends the Serializable Class
+ * Represents a review with specified details.
+ * The Review class extends the Serializable Class for data persistence.
  *
  * @author Fairuz Muhammad
- * @version PT3
+ * @version FINAL
+ * @see Serializable
  */
 public class Review extends Serializable{
     /**
-     * The date the review was made
+     * The date when the review was written.
      */
     public String date;
     
     /**
-     * The description of the review
+     * The text description of the review.
      */
     public String desc;
     
     /**
-     * Construct a new review based on the specified details
-     * 
-     * @param id The id of the review
-     * @param date The date the review was made
-     * @param desc The description of the review
+     * Constructs a new Review object with the specified details.
+     *
+     * @param id   The identifier of the review.
+     * @param date The date when the review was written.
+     * @param desc The text description of the review.
      */
     public Review (int id, String date, String desc){
         super();
@@ -34,9 +35,9 @@ public class Review extends Serializable{
     }
     
     /**
-     * Returns a string that shows all the Review details
-     * 
-     * @return A string containing the Review details
+     * Returns a string representation of the Review object, including its ID, date, and description.
+     *
+     * @return A string containing the details of the Review.
      */
     public String toString(){
         return  "Review ID: " + super.id +

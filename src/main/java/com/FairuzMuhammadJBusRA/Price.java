@@ -1,92 +1,52 @@
 package com.FairuzMuhammadJBusRA;
 
 /**
- * Represents the total Price
+ * Represents the pricing details of an item, including its base price and any applicable rebate.
  *
  * @author Fairuz Muhammad
- * @version PT3
+ * @version FINAL
  */
 
 public class Price{
     /**
-     * The total Price
+     * The base price of the item.
      */
     public double price;
     
     /**
-     * The total Rebate
+     * The rebate amount deducted from the base price.
      */
     public double rebate;
-//  public double discount;
     
     /**
-     * Construct a new Price object
-     * 
-     * @param price The total Price
+     * Constructs a new Price object with the specified base price and a default rebate of 0.0.
+     *
+     * @param price The base price of the item.
      */
     public Price(double price){
         this.price = price;
         this.rebate = 0.0;
-//      this.discount = 0;
     }
     
     /**
-     * Construct a new Price object
-     * 
-     * @param price The total Price
-     * @param rebate The total Rebate
+     * Constructs a new Price object with a specified base price and rebate.
+     *
+     * @param price The base price of the item.
+     * @param rebate The rebate amount to be deducted from the base price.
      */
     public Price(double price, double rebate){
         this.price = price;
         this.rebate = rebate;
-//      this.discount = 0.0;
     }
     
     /**
-     * Returns a string that shows all the Price details
-     * 
-     * @return A string containing the Price details
+     * Provides a string representation of the pricing details, including the base price and rebate.
+     *
+     * @return A string containing the base price and rebate amount.
      */
     public String toString(){
         return  "Price: " + price +
                 ", Rebate: " + rebate;
     }
-    
-/*
-    public Price(double price, int discount){
-        this.price = price;
-        this.discount = discount;
-        this.rebate = 0.0;
-    }
-  
-    private double getDiscountedPrice(){
-        if (this.discount>100.0){
-            this.discount = 100.0;
-        }
-        
-        if (this.discount==100.0){
-            return 0;
-        }
-        
-        this.discount = 100.0 - this.discount;
-        this.price = (double)(this.price * (this.discount/100.0));
-        return this.price;
-    }
-    
-    private double getRebatedPrice(){
-        if (this.price < this.rebate){
-            return 0.0;
-        }
-        
-        
-        if (this.rebate<0){
-            return 0.0;
-        }
-        
-        this.price -= this.rebate;
-
-        return this.price;
-    }
-*/
 }
 

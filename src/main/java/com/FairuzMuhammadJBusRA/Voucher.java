@@ -3,12 +3,11 @@ package com.FairuzMuhammadJBusRA;
 import com.FairuzMuhammadJBusRA.dbjson.Serializable;
 
 /**
- * Represents a voucher with specified Details
- * The Voucher class extends the Serializable Class
- * The Voucher class also implements the FileParser interface
+ * Represents a voucher with specified details. This class extends the Serializable class
+ * and provides functionality to manage and apply vouchers to prices.
  *
  * @author Fairuz Muhammad
- * @version CS4
+ * @version FINAL
  * @see Serializable
  */
 
@@ -19,40 +18,39 @@ public class Voucher extends Serializable{
     public String name;
     
     /**
-     * To identify if the voucher is used or not
-     * This variable is private
+     * Indicates whether the voucher has been used.
      */
     private boolean used;
     
     /**
-     * The minimum Price to be able to use a voucher
+     * The minimum price required to use the voucher.
      */
     public double minimum;
     
     /**
-     * The cut of the price that is applied after using a voucher
+     * The amount by which the price is reduced when the voucher is applied.
      */
     public double cut;
     
     /**
-     * The code of the voucher
+     * The code of the voucher.
      */
     public int code;
     
     /**
-     * The type of the Voucher according to the Voucher enum @see Type
+     * The type of the voucher, as defined in the Type enumeration.
      */
     public Type type;
     
     /**
-     * Construct a new Voucher object with the specified details
-     * 
-     * @param id The ID of the Voucher, inherited from the Serializable class
-     * @param name The Name of the person who is using the Voucher
-     * @param code The Code of the Voucher
-     * @param type The type of the Voucher according to the Voucher enum @see Type
-     * @param minimum The minimum price to be able to use a voucher
-     * @param cut The cut of the price that is applied after using a voucher
+     * Constructs a new Voucher object with the specified details.
+     *
+     * @param id       The ID of the voucher, inherited from the Serializable class.
+     * @param name     The name of the person using the voucher.
+     * @param code     The code of the voucher.
+     * @param type     The type of the voucher, as defined in the Type enumeration.
+     * @param minimum  The minimum price required to use the voucher.
+     * @param cut      The amount by which the price is reduced when the voucher is applied.
      */
     public Voucher(int id, String name, int code, Type type, double minimum, double cut){
         super();
@@ -65,20 +63,19 @@ public class Voucher extends Serializable{
     }
     
     /**
-     * Check if the Voucher is used or not
-     * 
-     * @return True or False based on the used boolean value)
+     * Checks if the voucher has been used.
+     *
+     * @return True if the voucher has been used, false otherwise.
      */
     public boolean isUsed(){
         return used;
     }
     
     /**
-     * Check if the voucher can be applied or not
-     * 
-     * @param price The price of the ticket, from the Price class @see Price
-     * 
-     * @return Returns true if price is more than the minimum and the used value is false, else Returns false
+     * Checks if the voucher can be applied to a given price.
+     *
+     * @param price The price to which the voucher might be applied.
+     * @return True if the voucher can be applied, false otherwise.
      */
     public boolean canApply(Price price){
         if(price.price > this.minimum && !this.used){
@@ -88,14 +85,13 @@ public class Voucher extends Serializable{
     }
     
     /**
-     * Apply the voucher
-     * Based on the voucher type the cut will be different
-     * If the voucher type is Discount, cut will be treated as percentage
-     * If the voucher type is Rebate, cut will be treated as normal value
-     * On type Discount, if cut is bigger than 100, cut will be set to 100
-     * On type Rebate, if cut is bigger than the price, cut will be set to the same as price
-     * 
-     * @return Returns the original price if the voucher cannot be applied, else Returns the Price after applying discount or rebate
+     * Applies the voucher to a given price.
+     * The method of application depends on the type of the voucher.
+     * For discount-type vouchers, the cut is treated as a percentage.
+     * For rebate-type vouchers, the cut is a fixed amount subtracted from the price.
+     *
+     * @param price The price to which the voucher is applied.
+     * @return The new price after applying the voucher.
      */
     public double apply(Price price){
         if(!canApply(price)){

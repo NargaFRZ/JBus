@@ -3,37 +3,36 @@ package com.FairuzMuhammadJBusRA;
 import com.FairuzMuhammadJBusRA.dbjson.Serializable;
 
 /**
- * Represents a Station with specified Details
- * The Station class extends the Serializable Class
+ * Represents a Station with specific details, including its name, city, and address.
+ * This class extends the Serializable class, allowing it to be serialized for data storage and retrieval.
  *
  * @author Fairuz Muhammad
- * @version PT3
+ * @version FINAL
  * @see Serializable
  */
 
 public class Station extends Serializable{
     /**
-     * The City the Station is on, based on the City enum @see City
+     * The city where the station is located. The city is represented by an enum value.
      */
     public City city;
     
     /**
-     * The Name of the Station
+     * The name of the station.
      */
     public String stationName;
     
     /**
-     * The address of the Station
+     * The address of the station.
      */
     public String address;
     
     /**
-     * Construct a new Station object with the specified details
-     * 
-     * @param id The ID of the station, inherited from the Serializable Class
-     * @param stationName The name of the Station
-     * @param city The City the Station is on, based on the City enum @see City
-     * @param address The address of the Station
+     * Constructs a new Station object with the specified details.
+     *
+     * @param stationName The name of the station.
+     * @param city        The city where the station is located, based on the City enum.
+     * @param address     The address of the station.
      */
     public Station(String stationName, City city, String address){
         super();
@@ -43,9 +42,9 @@ public class Station extends Serializable{
     }
     
     /**
-     * Returns a string that shows all the Station details
-     * 
-     * @return A string containing the Station details
+     * Returns a string representation of the Station object, including its ID, name, city, and address.
+     *
+     * @return A string containing the details of the station.
      */
     public String toString(){
         return  "Station ID: " + id + 

@@ -4,7 +4,7 @@ package com.FairuzMuhammadJBusRA;
  * Represents the Type of the Voucher
  *
  * @author Fairuz Muhammad
- * @version CS2
+ * @version FINAL
  */
 
 public enum Type

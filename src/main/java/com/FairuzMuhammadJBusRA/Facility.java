@@ -4,7 +4,7 @@ package com.FairuzMuhammadJBusRA;
  * Represents the Facility of the Bus
  *
  * @author Fairuz Muhammad
- * @version CS2
+ * @version FINAL
  */
 
 public enum Facility{

@@ -6,12 +6,12 @@ import java.sql.Timestamp;
 import com.FairuzMuhammadJBusRA.dbjson.Serializable;
 
 /**
- * Represents a bus with specified details
- * The Bus class extends the Serializable Class
- * The Bus class also implements the FileParser interface
+ * Represents a bus with specified details.
+ * This class extends Serializable and includes information about the bus's capacity, facilities, name, price, type, arrival, and departure stations.
+ * It also includes a list of schedules for the bus.
  *
  * @author Fairuz Muhammad
- * @version PT4
+ * @version FINAL
  * @see Serializable
  */
 
@@ -52,8 +52,16 @@ public class Bus extends Serializable{
      */
     public Station departure;
     
+    /**
+     * The list of schedules for the bus.
+     * Each schedule represents a different departure time and associated details for the bus.
+     */
     public List<Schedule> schedules;
 
+    /**
+     * The account ID associated with the bus.
+     * This ID represents the owner or manager of the bus.
+     */
     public int accountId;
     
     /**
@@ -96,6 +104,12 @@ public class Bus extends Serializable{
                 "Arrival: " + "\n" + arrival;
     }
     
+    /**
+     * Adds a new schedule to the bus's schedule list.
+     * Ensures that no duplicate schedules are added based on the specified timestamp.
+     *
+     * @param calendar The timestamp representing the schedule to be added.
+     */
     public void addSchedule(Timestamp calendar){
         try {
             for (Schedule schedule : this.schedules) {

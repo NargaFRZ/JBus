@@ -11,16 +11,43 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
+/**
+ * Controller for handling payment-related operations in the application.
+ * It provides endpoints for making bookings, accepting and canceling payments,
+ * and retrieving payment details for renters and buyers.
+ * 
+ * @author Fairuz Muhammad
+ * @version FINAL
+ */
 @RestController
 @RequestMapping("/payment")
 public class PaymentController implements BasicGetController<Payment> {
+    /**
+     * A JsonTable instance for managing Payment entities. It uses JsonAutowired annotation
+     * to specify the class type (Payment) and the file path for the JSON file containing Payment data.
+     */
     public static @JsonAutowired(value = Payment.class, filepath = "src/main/java/com/FairuzMuhammadJBusRA/json/payment.json")
     JsonTable<Payment> paymentTable;
 
+    /**
+     * Returns the JsonTable associated with Payment entities.
+     *
+     * @return JsonTable for Payment entities.
+     */
     public JsonTable<Payment> getJsonTable() {
         return PaymentController.paymentTable;
     }
 
+    /**
+     * Endpoint for creating a booking. It creates a new Payment entity and records the booking details.
+     *
+     * @param buyerId The ID of the buyer.
+     * @param renterId The ID of the renter.
+     * @param busId The ID of the bus.
+     * @param busSeats The list of seats to be booked.
+     * @param departureDate The departure date of the bus.
+     * @return A BaseResponse containing the booking result and a Payment object.
+     */
     @RequestMapping(value="/makeBooking", method= RequestMethod.POST)
     public BaseResponse<Payment> makeBooking(
             @RequestParam int buyerId,
@@ -62,6 +89,12 @@ public class PaymentController implements BasicGetController<Payment> {
         return new BaseResponse<>(true, "Booking berhasil", payment);
     }
 
+    /**
+     * Endpoint to accept a payment. It changes the status of the payment to SUCCESS.
+     *
+     * @param id The ID of the payment to be accepted.
+     * @return A BaseResponse indicating the result of the operation.
+     */
     @RequestMapping(value="/{id}/accept", method=RequestMethod.POST)
     public BaseResponse<Payment> accept(@PathVariable int id){
         Payment payment = Algorithm.<Payment>find(paymentTable, p -> p.id == id);
@@ -82,6 +115,12 @@ public class PaymentController implements BasicGetController<Payment> {
         return new BaseResponse<>(true, "Payment accepted successfully", payment);
     }
 
+    /**
+     * Endpoint to cancel a payment. It changes the status of the payment to FAILED.
+     *
+     * @param id The ID of the payment to be cancelled.
+     * @return A BaseResponse indicating the result of the operation.
+     */
     @RequestMapping(value="/{id}/cancel", method=RequestMethod.POST)
     public BaseResponse<Payment> cancel(@PathVariable int id){
         Payment payment = Algorithm.<Payment>find(paymentTable, p -> p.id == id);
@@ -109,12 +148,24 @@ public class PaymentController implements BasicGetController<Payment> {
         return new BaseResponse<>(true, "Payment telah di cancel", payment);
     }
 
+    /**
+     * Retrieves payments related to a specific renter.
+     *
+     * @param renterId The ID of the renter.
+     * @return A list of Payment entities associated with the renter.
+     */
     @GetMapping("/getRenterPayment")
     public List<Payment> getRenterPayment(@RequestParam int renterId
     ) {
         return Algorithm.<Payment>collect(getJsonTable(), b->b.renterId == renterId);
     }
 
+    /**
+     * Retrieves payments related to a specific account.
+     *
+     * @param accountId The ID of the account.
+     * @return A list of Payment entities associated with the account.
+     */
     @GetMapping("/getAccountPayment")
     public List<Payment> getBuyerPayment(@RequestParam int accountId
     ) {
