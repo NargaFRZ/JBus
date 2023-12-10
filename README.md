@@ -37,4 +37,4 @@ Data is stored in the following JSON files:
 To use the system, compile and run the `JBus.java` as the entry point. The Android app can be installed and run on an Android device to interact with the system.
 
 ## Development
-The project is structured to allow for easy expansion and integration of additional features. This was also a part of my final project for Object Oriented Programming class in University.
+The project is structured to allow for easy expansion and integration of additional features. This was also a part of my final project for Object Oriented Programming class in University. Special thanks to the lab assistant.
