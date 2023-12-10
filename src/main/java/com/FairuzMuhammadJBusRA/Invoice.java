@@ -42,12 +42,10 @@ public class Invoice extends Serializable{
      * Construct a new Invoice object with the specified details
      * This constructor is Protected which means it can only be accessed by the same package or by subclasses
      * 
-     * @param id The ID of the invoice, inherited from the Serializable Class
      * @param buyerId The ID of the buyer
      * @param renterId The ID of the renter
-     * @param time The time the invoice was made
      */
-    protected Invoice(int id, int buyerId, int renterId){
+    protected Invoice(int buyerId, int renterId){
         super();
         this.buyerId = buyerId;
         this.renterId = renterId;
@@ -64,7 +62,7 @@ public class Invoice extends Serializable{
      * @param renter The ID of the renter, from the class Renter @see Renter
      * @param time The time the invoice was made
      */
-    public Invoice(int id, Account buyer, Renter renter){
+    public Invoice(Account buyer, Renter renter){
         super();
         this.buyerId = buyer.id;
         this.renterId = renter.id;

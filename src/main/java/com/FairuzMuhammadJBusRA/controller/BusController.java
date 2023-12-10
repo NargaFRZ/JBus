@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.sql.Timestamp;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/bus")
@@ -87,4 +88,31 @@ public class BusController implements BasicGetController<Bus> {
         return Algorithm.<Bus>collect(getJsonTable(), b->b.accountId==accountId);
     }
 
+    @GetMapping("/getBus")
+    public List<Bus> getBus(@RequestParam(value = "page", defaultValue = "0") int page,
+                            @RequestParam(value = "size", defaultValue = "10") int pageSize) {
+        return Algorithm.<Bus>paginate(getJsonTable(), page, pageSize, b -> b.capacity != 0 && b.schedules != null);
+    }
+
+    @GetMapping("/numberOfBuses")
+    public Integer numberOfBuses() {
+        return busTable.size();
+    }
+
+    @GetMapping("/seats")
+    public Map<String, Boolean> getSeats(@RequestParam int busId, @RequestParam String date){
+        Bus bus = Algorithm.<Bus>find(busTable, b -> b.id == busId);
+        Timestamp time;
+        try {
+            time = Timestamp.valueOf(LocalDateTime.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        } catch (DateTimeParseException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid");
+        }
+        for (Schedule schedule : bus.schedules) {
+            if (schedule.departureSchedule.equals(time)) {
+                return schedule.seatAvailability;
+            }
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No schedule found for the given date");
+    }
 }

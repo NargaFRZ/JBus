@@ -32,15 +32,14 @@ public class Payment extends Invoice{
     /**
      * Construct a new Payment object with the specified details
      * 
-     * @param id The ID of the Bus and Invoice, inherited from the Invoice class
      * @param buyerId The ID of the Buyer, inherited from the Invoice class
      * @param renterId The ID of the Renter, inherited from the Invoice class
      * @param busId The ID of the Bus
      * @param departureDate The departure date of the Bus
      * @param busSeat The seat number of the Bus
      */
-    public Payment(int id, int buyerId, int renterId, int busId, List<String> busSeat, Timestamp departureDate){
-        super(id, buyerId, renterId);
+    public Payment(int buyerId, int renterId, int busId, List<String> busSeat, Timestamp departureDate){
+        super(buyerId, renterId);
         this.busId = busId;
         this.departureDate = new Timestamp(departureDate.getTime());
         this.busSeat = busSeat;
@@ -49,15 +48,14 @@ public class Payment extends Invoice{
     /**
      * Construct a new Payment object with the specified details
      * 
-     * @param id The ID of the Bus and Invoice, inherited from the Invoice class
      * @param buyer The ID of the Buyer, inherited from the Invoice class, includes the buyer from the Account class @see Account
      * @param renter The ID of the Renter, inherited from the Invoice class, includes the renter from the Account class @see Account
      * @param busId The ID of the Bus
      * @param departureDate The departure date of the Bus
      * @param busSeat The seat number of the Bus
      */
-    public Payment(int id, Account buyer, Renter renter, int busId, List<String> busSeat, Timestamp departureDate){
-        super(id, buyer, renter);
+    public Payment(Account buyer, Renter renter, int busId, List<String> busSeat, Timestamp departureDate){
+        super(buyer, renter);
         this.busId = busId;
         this.departureDate = new Timestamp(departureDate.getTime());
         this.busSeat = busSeat;
@@ -126,14 +124,3 @@ public class Payment extends Invoice{
         return false;
     }
 }
-
-/* PT4
-public static boolean isAvailable(Timestamp departureSchedule, String seat, Bus bus){
-        for (Schedule s : bus.schedules){
-            if (s.departureSchedule.equals(departureSchedule) && s.isSeatAvailable(seat)){
-                return true;
-            }
-        }
-        return false;
-    }
- */

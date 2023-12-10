@@ -28,18 +28,16 @@ public class PaymentController implements BasicGetController<Payment> {
             @RequestParam int busId,
             @RequestParam List<String> busSeats,
             @RequestParam String departureDate
-        )
+    )
     {
-        Account buyer = Algorithm.<Account>find(AccountController.accountTable, a -> a.id == buyerId);
-        Account accrenter = Algorithm.<Account>find(AccountController.accountTable, a -> a.company.id == renterId);
-        Renter renter = accrenter.company;
-        Bus bus = Algorithm.<Bus>find(BusController.busTable, b -> b.id == busId);
+        Account buyer = Algorithm.<Account>find(new AccountController().getJsonTable(), t->t.id == buyerId);
+        Bus bus = Algorithm.<Bus>find(new BusController().getJsonTable(), t->t.id == busId);
 
         if (buyer == null || bus == null) {
             return new BaseResponse<>(false, "Pembeli atau Bus tidak ditemukan", null);
         }
 
-        if (buyer.balance < bus.price.price) {
+        if (buyer.balance < (bus.price.price * busSeats.size())) {
             return new BaseResponse<>(false, "Balance kurang", null);
         }
 
@@ -55,9 +53,9 @@ public class PaymentController implements BasicGetController<Payment> {
             return new BaseResponse<>(false, "Booking failed", null);
         }
 
-        buyer.balance -= bus.price.price;
+        buyer.balance -= (bus.price.price * busSeats.size());
 
-        Payment payment = new Payment(buyerId, buyer, renter, busId, busSeats, departureTimestamp);
+        Payment payment = new Payment(buyerId, renterId, busId, busSeats, departureTimestamp);
         payment.status = Payment.PaymentStatus.WAITING;
         paymentTable.add(payment);
 
@@ -67,6 +65,8 @@ public class PaymentController implements BasicGetController<Payment> {
     @RequestMapping(value="/{id}/accept", method=RequestMethod.POST)
     public BaseResponse<Payment> accept(@PathVariable int id){
         Payment payment = Algorithm.<Payment>find(paymentTable, p -> p.id == id);
+        Account renter = Algorithm.<Account>find(new AccountController().getJsonTable(), t->t.id == payment.renterId);
+        Bus bus = Algorithm.<Bus>find(BusController.busTable, b -> b.id == payment.getBusId());
 
         if (payment == null) {
             return new BaseResponse<>(false, "Payment tidak ditemukan", null);
@@ -76,6 +76,7 @@ public class PaymentController implements BasicGetController<Payment> {
             return new BaseResponse<>(false, "Status payment bukan waiting", null);
         }
 
+        renter.balance += (payment.busSeat.size() * bus.price.price);
         payment.status = Payment.PaymentStatus.SUCCESS;
 
         return new BaseResponse<>(true, "Payment accepted successfully", payment);
@@ -84,6 +85,8 @@ public class PaymentController implements BasicGetController<Payment> {
     @RequestMapping(value="/{id}/cancel", method=RequestMethod.POST)
     public BaseResponse<Payment> cancel(@PathVariable int id){
         Payment payment = Algorithm.<Payment>find(paymentTable, p -> p.id == id);
+        Account buyer = Algorithm.<Account>find(AccountController.accountTable, a -> a.id == payment.buyerId);
+        Bus bus = Algorithm.<Bus>find(BusController.busTable, b -> b.id == payment.getBusId());
 
         if (payment == null) {
             return new BaseResponse<>(false, "Payment tidak ditemukan", null);
@@ -94,7 +97,27 @@ public class PaymentController implements BasicGetController<Payment> {
         }
 
         payment.status = Payment.PaymentStatus.FAILED;
+        buyer.balance += (bus.price.price * payment.busSeat.size());
+
+        Schedule scheduleToCancel = Algorithm.<Schedule>find(bus.schedules, s -> s.departureSchedule.equals(payment.departureDate));
+        if (scheduleToCancel != null) {
+            for(String seat : payment.busSeat){
+                scheduleToCancel.seatAvailability.put(seat, true);
+            }
+        }
 
         return new BaseResponse<>(true, "Payment telah di cancel", payment);
+    }
+
+    @GetMapping("/getRenterPayment")
+    public List<Payment> getRenterPayment(@RequestParam int renterId
+    ) {
+        return Algorithm.<Payment>collect(getJsonTable(), b->b.renterId == renterId);
+    }
+
+    @GetMapping("/getAccountPayment")
+    public List<Payment> getBuyerPayment(@RequestParam int accountId
+    ) {
+        return Algorithm.<Payment>collect(getJsonTable(), b->b.buyerId == accountId);
     }
 }
